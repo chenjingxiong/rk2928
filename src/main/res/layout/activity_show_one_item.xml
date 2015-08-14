@@ -6,8 +6,11 @@
     android:paddingLeft="0dip"
     android:paddingRight="0dip"
     android:paddingTop="0dip"
-    android:background="@drawable/gradient_activity_bk"
     tools:context="com.enjack.factorytesttool.ShowOneItemActivity" >
+    <!--
+    android:background="@drawable/gradient_activity_bk"
+    -->
+
 
     <FrameLayout
         android:id="@+id/show_one_item_fm_content"

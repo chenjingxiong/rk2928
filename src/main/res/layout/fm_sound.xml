@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:paddingLeft="5dip"
+    android:paddingRight="5dip">
+    
+    <include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    />
+    
+    <Button
+        android:id="@+id/play"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv12"
+        android:layout_marginTop="@dimen/hdiv5"
+        android:layout_marginBottom="1dip"
+        android:layout_below="@id/mytitle"
+        android:text="Play"
+        android:textSize="@dimen/hdiv4"
+        android:background="@drawable/comm_bk_selector"
+        />
+    
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv12"
+        android:layout_marginTop="1dip"
+        android:layout_marginBottom="1dip"
+        android:layout_below="@id/play"
+        android:text="Stop"
+        android:textSize="@dimen/hdiv4"
+        android:background="@drawable/comm_bk_selector"
+        />
+    
+    
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stop"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="@dimen/hdiv10"
+        >
+        <Button
+            android:id="@+id/sound_dec"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="@dimen/hdiv12"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="3dip"
+            android:text="-"
+            android:textSize="@dimen/hdiv4"
+            android:background="@drawable/comm_bk_selector"
+            />
+        
+        <SeekBar
+            android:id="@+id/sound_seekbar"
+            android:layout_width="0dip"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:max="255"
+            android:layout_toRightOf="@id/sound_dec"
+            android:layout_marginRight="3dip"
+            />
+        
+        <Button
+            android:id="@+id/sound_add"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="@dimen/hdiv12"
+            android:layout_toRightOf="@id/sound_seekbar"
+            android:text="+"
+            android:textSize="@dimen/hdiv4"
+            android:background="@drawable/comm_bk_selector"
+            />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/soundd_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:padding="0dip">
+    <include
+        android:id="@+id/mytitle"
+        layout="@layout/title"
+        />
+        <Button
+        android:id="@+id/screen_btnStart"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv12"
+        android:layout_marginTop="@dimen/hdiv5"
+        android:layout_marginBottom="1dip"
+        android:layout_marginLeft = "5dip"
+        android:layout_marginRight = "5dip"
+        android:layout_below="@id/mytitle"
+        android:text="Start"
+        android:textSize="@dimen/hdiv4"
+        android:background="@drawable/comm_bk_selector"
+        />
+        <Button
+            android:id="@+id/screen_LcdTouch"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+			android:fillViewport="true"
+			android:layout_margin="0dip"
+            android:background="#ffffff" />
+
+</RelativeLayout>

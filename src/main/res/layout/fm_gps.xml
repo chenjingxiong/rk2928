@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/xmps.androiddebugtool.factorytest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <!-- 标题 -->
+	<include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    	/>
+	
+
+	<com.enjack.diyviews.GradientLineView
+	    android:id="@+id/gps_seperate_fake"
+	    android:layout_width="fill_parent"
+	    android:layout_height="@dimen/hdiv8"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginBottom="@dimen/hdiv2"
+	    custom:gradientStartColor="#00000000"
+	    custom:gradientCenterColor="#55203066"
+	    custom:gradientEndColor="#00000000"
+	    />
+	
+	<!-- 测试信息 -->
+	<TextView
+	    android:id="@+id/gps_test_info"
+	    android:layout_width="fill_parent"
+	    android:layout_height="@dimen/hdiv8"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginBottom="@dimen/hdiv2"
+	    android:gravity="center"
+	    android:background="#00009900"
+	    android:textColor="#ff000000"
+	    />
+	
+    <ScrollView
+        android:id="@+id/gps_sv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mytitle"
+        android:layout_above="@id/gps_test_info"
+        android:layout_marginTop="@dimen/hdiv3"
+        android:layout_marginBottom="@dimen/hdiv3"
+        >
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            
+            <!-- 分割线 -->
+			<com.enjack.diyviews.GradientLineView
+			    android:id="@+id/gps_seperate1"
+			    android:layout_width="1dp"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_centerHorizontal="true"
+			    custom:gradientStartColor="#00000000"
+			    custom:gradientCenterColor="#ff000055"
+			    custom:gradientEndColor="#00000000"
+			    />
+            
+			<!-- 星数 -->
+			<com.enjack.diyviews.ValueTextView
+			    android:id="@+id/gps_sat_num"
+			    android:layout_width="@dimen/wdiv40"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_toLeftOf="@id/gps_seperate1"
+			    custom:text="0"
+			    custom:textSize="40dip"
+			    custom:textColor="#ff000011"
+			    custom:textStrokeWidth="2dip"
+			    custom:textName="星数"
+			    custom:textNameSize="@dimen/hdiv3"
+			    custom:textNameColor="#aa303030"
+			    custom:textNameStrokeWidth="0dp"
+			    custom:textSuggestSize="true"	
+			    />
+			
+			<!-- >37 -->
+			<com.enjack.diyviews.ValueTextView
+			    android:id="@+id/gps_large37"
+			    android:layout_width="@dimen/wdiv40"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_toRightOf="@id/gps_seperate1"
+			    custom:text="0"
+			    custom:textSize="40dip"
+			    custom:textColor="#ff000011"
+			    custom:textStrokeWidth="2dip"
+			    custom:textName="大于37"
+			    custom:textNameSize="@dimen/hdiv3"
+			    custom:textNameColor="#aa303030"
+			    custom:textNameStrokeWidth="0dp"
+			    custom:textSuggestSize="true"	
+			    />
+			
+			<!-- cn值柱状图 -->
+			<com.enjack.modules.GpsCnView
+			    android:id="@+id/gps_cn"
+			    android:layout_width="fill_parent"
+			    android:layout_height="@dimen/hdiv50"
+			    android:layout_below="@id/gps_sat_num"
+			    android:layout_marginLeft="@dimen/wdiv3"
+			    android:layout_marginRight="@dimen/wdiv3"
+			    android:layout_marginTop="@dimen/hdiv5"
+			    android:background="#ff909090"
+			    />
+			
+			<!-- 分割线 -->
+			<com.enjack.diyviews.GradientLineView
+			    android:id="@+id/gps_seperate2"
+			    android:layout_width="1dp"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_below="@id/gps_cn"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_centerHorizontal="true"
+			    custom:gradientStartColor="#00000000"
+			    custom:gradientCenterColor="#ff000055"
+			    custom:gradientEndColor="#00000000"
+			    />
+			
+			<!-- 经度 -->
+			<com.enjack.diyviews.ValueTextView
+			    android:id="@+id/gps_longitude"
+			    android:layout_width="@dimen/wdiv40"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_below="@id/gps_cn"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_toLeftOf="@id/gps_seperate2"
+			    custom:text="0.00"
+			    custom:textSize="40dip"
+			    custom:textColor="#ff000011"
+			    custom:textStrokeWidth="2dip"
+			    custom:textName="经度(E)"
+			    custom:textNameSize="@dimen/hdiv3"
+			    custom:textNameColor="#aa303030"
+			    custom:textNameStrokeWidth="0dp"	
+			    custom:textSuggestSize="true"
+			    />
+			
+			<!-- 纬度-->
+			<com.enjack.diyviews.ValueTextView
+			    android:id="@+id/gps_latitude"
+			    android:layout_width="@dimen/wdiv40"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_below="@id/gps_cn"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_toRightOf="@id/gps_seperate2"
+			    custom:text="0.00"
+			    custom:textSize="40dip"
+			    custom:textColor="#ff000011"
+			    custom:textStrokeWidth="2dip"
+			    custom:textName="纬度 (N)"
+			    custom:textNameSize="@dimen/hdiv3"
+			    custom:textNameColor="#aa303030"
+			    custom:textNameStrokeWidth="0dp"	
+			    custom:textSuggestSize="true"
+			    />
+			
+			<!-- 分割线 -->
+			<com.enjack.diyviews.GradientLineView
+			    android:id="@+id/gps_seperate3"
+			    android:layout_width="1dp"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_below="@id/gps_seperate2"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_centerHorizontal="true"
+			    custom:gradientStartColor="#00000000"
+			    custom:gradientCenterColor="#ff000055"
+			    custom:gradientEndColor="#00000000"
+			    />
+			
+			<!-- UTC -->
+			<com.enjack.diyviews.ValueTextView
+			    android:id="@+id/gps_utc"
+			    android:layout_width="@dimen/wdiv40"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_below="@id/gps_seperate2"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_toLeftOf="@id/gps_seperate3"
+			    custom:text="00:00:00"
+			    custom:textSize="40dip"
+			    custom:textColor="#ff000011"
+			    custom:textStrokeWidth="2dip"
+			    custom:textName="UTC"
+			    custom:textNameSize="@dimen/hdiv3"
+			    custom:textNameColor="#aa303030"
+			    custom:textNameStrokeWidth="0dp"	
+			    custom:textSuggestSize="true"
+			    />
+			
+			<!-- 海拔 -->
+			<com.enjack.diyviews.ValueTextView
+			    android:id="@+id/gps_altitude"
+			    android:layout_width="@dimen/wdiv40"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_below="@id/gps_seperate2"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_toRightOf="@id/gps_seperate3"
+			    custom:text="0.0"
+			    custom:textSize="40dip"
+			    custom:textColor="#ff000011"
+			    custom:textStrokeWidth="2dip"
+			    custom:textName="海拔 "
+			    custom:textNameSize="@dimen/hdiv3"
+			    custom:textNameColor="#aa303030"
+			    custom:textNameStrokeWidth="0dp"	
+			    custom:textSuggestSize="true"
+			    />
+			
+			<!-- 分割线 -->
+			<com.enjack.diyviews.GradientLineView
+			    android:id="@+id/gps_seperate4"
+			    android:layout_width="@dimen/wdiv50"
+			    android:layout_height="1dip"
+			    android:layout_below="@id/gps_seperate3"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_centerHorizontal="true"
+			    custom:gradientStartColor="#00000000"
+			    custom:gradientCenterColor="#ff000055"
+			    custom:gradientEndColor="#00000000"
+			    />
+			
+			<!-- 速度 -->
+			<com.enjack.diyviews.ValueTextView
+			    android:id="@+id/gps_speed"
+			    android:layout_width="@dimen/wdiv40"
+			    android:layout_height="@dimen/hdiv12"
+			    android:layout_below="@id/gps_seperate4"
+			    android:layout_marginTop="@dimen/hdiv3"
+			    android:layout_centerHorizontal="true"
+			    custom:text="0.00"
+			    custom:textSize="40dip"
+			    custom:textColor="#ff000011"
+			    custom:textStrokeWidth="2dip"
+			    custom:textName="速度 "
+			    custom:textNameSize="@dimen/hdiv3"
+			    custom:textNameColor="#aa303030"
+			    custom:textNameStrokeWidth="0dp"	
+			    custom:textSuggestSize="true"
+			    />
+			
+        </RelativeLayout>
+    </ScrollView>
+	
+</RelativeLayout>

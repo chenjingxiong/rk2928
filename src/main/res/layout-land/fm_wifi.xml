@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/xmps.androiddebugtool.factorytest"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    />
+    
+    
+    <ListView
+        android:id="@+id/wifi_list"
+        android:layout_width="@dimen/wdiv60"
+        android:layout_height="fill_parent"
+        android:layout_margin="3dip"
+        android:layout_below="@id/mytitle"
+        android:layout_marginTop="@dimen/hdiv2"
+        android:layout_marginBottom="@dimen/hdiv2"
+        />
+    
+    <com.enjack.diyviews.CircleButtonView
+        android:id="@+id/wifi_refresh"
+        android:layout_width="0dip"	
+        android:layout_height="0dip"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/wdiv2"
+        custom:radius="@dimen/hdiv12"
+        custom:text="刷新"	
+        custom:textSuggestSize="true"
+        custom:textColor="#ff000000"
+        custom:textColorPressed="#ffffffff"
+        custom:frameColor="#dd007700"
+        custom:frameWidth="2px"
+        custom:bkComm="#eedddddd"
+        custom:bkPressed="#ff9966bb"
+        />
+</RelativeLayout>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/xmps.androiddebugtool.factorytest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip" >
+    
+    <!-- 标题 -->
+	<include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    	/>
+	
+	<!-- 分割线 -->
+	<com.enjack.diyviews.GradientLineView
+	    android:id="@+id/sdcard_seperate1"
+	    android:layout_width="1dp"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/mytitle"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_centerHorizontal="true"
+	    custom:gradientStartColor="#00000000"
+	    custom:gradientCenterColor="#ff000000"
+	    custom:gradientEndColor="#00000000"
+	    />
+	
+	<!-- 总容量 -->
+	<com.enjack.diyviews.ValueTextView
+	    android:id="@+id/sdcard_total"
+	    android:layout_width="@dimen/wdiv40"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/mytitle"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_toLeftOf="@id/sdcard_seperate1"
+	    custom:text="0.00"
+	    custom:textSize="40dip"
+	    custom:textColor="#ff000011"
+	    custom:textStrokeWidth="2dip"
+	    custom:textName="总容量(GB)"
+	    custom:textNameSize="@dimen/hdiv3"
+	    custom:textNameColor="#aa303030"
+	    custom:textNameStrokeWidth="0dp"	
+	    />
+	
+	<!-- 剩余容量 -->
+	<com.enjack.diyviews.ValueTextView
+	    android:id="@+id/sdcard_available"
+	    android:layout_width="@dimen/wdiv40"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/mytitle"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_toRightOf="@id/sdcard_seperate1"
+	    custom:text="0.00"
+	    custom:textSize="40dip"
+	    custom:textColor="#ff000011"
+	    custom:textStrokeWidth="2dip"
+	    custom:textName="剩余(GB)"
+	    custom:textNameSize="@dimen/hdiv3"
+	    custom:textNameColor="#aa303030"
+	    custom:textNameStrokeWidth="0dp"	
+	    />
+	
+	<!-- 分割线 -->
+	<com.enjack.diyviews.GradientLineView
+	    android:id="@+id/sdcard_seperate2"
+	    android:layout_width="@dimen/wdiv60"
+	    android:layout_height="1dip"
+	    android:layout_below="@id/sdcard_seperate1"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_centerHorizontal="true"
+	    custom:gradientStartColor="#00000000"
+	    custom:gradientCenterColor="#ff000000"
+	    custom:gradientEndColor="#00000000"
+	    />
+	
+	<!-- 分割线 -->
+	<com.enjack.diyviews.GradientLineView
+	    android:id="@+id/sdcard_seperate3"
+	    android:layout_width="1dp"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/sdcard_seperate2"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_centerHorizontal="true"
+	    custom:gradientStartColor="#00000000"
+	    custom:gradientCenterColor="#ff000000"
+	    custom:gradientEndColor="#00000000"
+	    />
+	
+	<!-- 写速度 -->
+	<com.enjack.diyviews.ValueTextView
+	    android:id="@+id/sdcard_writespeed"
+	    android:layout_width="@dimen/wdiv40"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/sdcard_seperate2"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_toLeftOf="@id/sdcard_seperate3"
+	    custom:text="0.00"
+	    custom:textSize="40dip"
+	    custom:textColor="#ff223377"
+	    custom:textStrokeWidth="2dip"
+	    custom:textName="写速度(MB/s)"
+	    custom:textNameSize="@dimen/hdiv3"
+	    custom:textNameColor="#aa305530"
+	    custom:textNameStrokeWidth="0dp"	
+	    />
+	
+	<!-- 读速度 -->
+	<com.enjack.diyviews.ValueTextView
+	    android:id="@+id/sdcard_readspeed"
+	    android:layout_width="@dimen/wdiv40"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/sdcard_seperate2"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_toRightOf="@id/sdcard_seperate3"
+	    custom:text="0.00"
+	    custom:textSize="40dip"
+	    custom:textColor="#ff223377"
+	    custom:textStrokeWidth="2dip"
+	    custom:textName="读速度(MB/s)"
+	    custom:textNameSize="@dimen/hdiv3"
+	    custom:textNameColor="#aa305530"
+	    custom:textNameStrokeWidth="0dp"	
+	    />
+	
+	<!-- 开关 -->
+	<com.enjack.diyviews.SwitchView
+	    android:id="@+id/sdcard_switch"
+	    android:layout_width="@dimen/wdiv20"
+	    android:layout_height="@dimen/hdiv6"
+	    android:layout_below="@id/sdcard_readspeed"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="@dimen/hdiv2"
+	    custom:switchState="true"
+	    />
+	
+	<!-- 当前测试的路径，外置或者内置 -->
+	<TextView
+	    android:id="@+id/sdcard_tvTargetPath"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/sdcard_switch"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:textSize="@dimen/hdiv2"
+	    android:textColor="#cd112013"
+	    android:text="测试外置SD卡"
+	    />
+	
+	<!-- 测试结果 -->
+	<com.enjack.diyviews.ValueTextView
+	    android:id="@+id/sdcard_tvResult"
+	    android:layout_width="@dimen/wdiv40"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/sdcard_tvTargetPath"
+	    android:layout_marginTop="@dimen/hdiv4"
+	    android:layout_centerHorizontal="true"
+	    custom:text="未知"
+	    custom:textSize="@dimen/hdiv4"
+	    custom:textColor="#ff000011"
+	    custom:textStrokeWidth="1dip"
+	    custom:textName="测试结果"
+	    custom:textNameSize="@dimen/hdiv3"
+	    custom:textNameColor="#aa303030"
+	    custom:textNameStrokeWidth="0dp"	
+	    />
+
+	
+	<!-- 测试过程信息-->
+	<TextView
+	    android:id="@+id/sdcard_tvInfo"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/sdcard_tvResult"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:textColor="#ff000000"
+	    android:textSize="@dimen/hdiv4"
+	    />
+	
+	<!-- 开始按钮-->
+	<com.enjack.diyviews.CircleButtonView
+        android:id="@+id/sdcard_start"
+        android:layout_width="0dip"	
+        android:layout_height="0dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dip"
+        android:layout_alignParentBottom="true"
+        custom:radius="@dimen/hdiv7"
+        custom:text="开始"	
+        custom:textSuggestSize="true"
+        custom:textColor="#ff000000"
+        custom:textColorPressed="#ffffffff"
+        custom:frameColor="#dd007777"
+        custom:frameWidth="2px"
+        custom:bkComm="#eedddddd"
+        custom:bkPressed="#ff9966bb"
+        />
+	
+</RelativeLayout>

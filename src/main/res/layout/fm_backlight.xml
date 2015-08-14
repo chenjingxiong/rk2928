@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <include
+        android:id="@+id/mytitle"
+        layout="@layout/title"
+        />
+    
+    
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        >
+        <Button
+            android:id="@+id/bl_dec"
+            android:layout_width="0dip"
+            android:layout_height="50dip"
+            android:layout_weight="1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="3dip"
+            android:text="-"
+            android:background="@drawable/comm_bk_selector"
+            />
+        
+        <SeekBar
+            android:id="@+id/bl_seekbar"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:max="255"
+            android:layout_toRightOf="@id/bl_dec"
+            android:layout_marginRight="3dip"
+            />
+        
+        <Button
+            android:id="@+id/bl_add"
+            android:layout_width="0dip"
+            android:layout_height="50dip"
+            android:layout_weight="1"
+            android:layout_toRightOf="@id/bl_seekbar"
+            android:text="+"
+            android:background="@drawable/comm_bk_selector"
+            />
+    </LinearLayout>
+   
+    
+    <TextView
+        android:id="@+id/bl_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

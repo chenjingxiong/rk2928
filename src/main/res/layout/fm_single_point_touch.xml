@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:paddingLeft="0dip"
+    android:paddingRight="0dip">
+    <include
+        android:id="@+id/mytitle"
+        layout="@layout/title"
+        />
+        <Button
+        android:id="@+id/SinglePointTouch_btnStart"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv12"
+        android:layout_marginTop="@dimen/hdiv5"
+        android:layout_marginBottom="1dip"
+        android:layout_marginLeft = "5dip"
+        android:layout_marginRight = "5dip"
+        android:layout_below="@id/mytitle"
+        android:text="Start"
+        android:textSize="@dimen/hdiv4"
+        android:background="@drawable/comm_bk_selector"
+        />
+        <xmps.androiddebugtool.factorytest.testmodules.TouchScreenButton
+        android:id="@+id/SinglePointTouch_btnLeftUp"
+        android:layout_marginTop="0dip"
+        android:layout_marginLeft = "0dip"
+      	android:layout_width="30dip"
+    	android:layout_height="30dip"
+    	android:background="@android:color/transparent" />
+
+        <xmps.androiddebugtool.factorytest.testmodules.TouchScreenButton
+        android:id="@+id/SinglePointTouch_btnLeftDown"
+           android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dip"
+        android:layout_marginLeft = "0dip"
+      	android:layout_width="30dip"
+    	android:layout_height="30dip"
+    	android:background="@android:color/transparent" />
+
+        <xmps.androiddebugtool.factorytest.testmodules.TouchScreenButton
+        android:id="@+id/SinglePointTouch_btnRightUp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dip"
+        android:layout_marginRight = "0dip"
+      	android:layout_width="30dip"
+    	android:layout_height="30dip"
+    	android:background="@android:color/transparent" />
+        
+       <xmps.androiddebugtool.factorytest.testmodules.TouchScreenButton
+        android:id="@+id/SinglePointTouch_btnRightDown"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="0dip"
+        android:layout_marginRight = "0dip"
+      	android:layout_width="30dip"
+    	android:layout_height="30dip"
+    	android:background="@android:color/transparent" />
+       
+       
+   <xmps.androiddebugtool.factorytest.testmodules.TouchScreenButton
+        android:id="@+id/SinglePointTouch_btnMiddle"
+        android:layout_centerInParent="true"
+      	android:layout_width="30dip"
+    	android:layout_height="30dip"
+    	android:background="@android:color/transparent" />
+</RelativeLayout>

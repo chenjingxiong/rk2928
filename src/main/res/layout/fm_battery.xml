@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/xmps.androiddebugtool.factorytest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    	/>
+    
+    
+    <com.enjack.diyviews.CircleButtonView
+        android:id="@+id/battery_cap"
+        android:layout_width="0dip"	
+        android:layout_height="0dip"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5dip"
+        custom:radius="@dimen/wdiv25"
+        custom:text="0%"	
+        custom:textSuggestSize="true"
+        custom:textColor="#ff000000"
+        custom:textColorPressed="#ff000000"
+        custom:frameColor="#eeddddff"
+        custom:frameWidth="2px"
+        custom:bkComm="#eeddddff"
+        custom:bkPressed="#eeddddff"
+        />
+    
+    <TextView
+        android:id="@+id/battery_charge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/battery_cap"
+        android:layout_marginTop="5dip"
+        android:gravity="center"
+        />
+
+</RelativeLayout>

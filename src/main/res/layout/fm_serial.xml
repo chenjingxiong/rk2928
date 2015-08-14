@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.enjack.factorytesttool"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    />
+    
+    <LinearLayout
+        android:id="@+id/serial_btn_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginBottom="10dip"
+        android:layout_below="@id/mytitle"
+        android:layout_marginTop="@dimen/hdiv5"
+        android:orientation="horizontal"
+        >
+        <Button
+	        android:id="@+id/serial_btnSend"
+	        android:layout_weight="3"
+	        android:layout_width="0dip"
+	        android:layout_height="@dimen/hdiv10"
+	        android:text="发送"
+	        android:textSize="@dimen/hdiv4"
+	        android:background="@drawable/comm_bk_selector"
+        />
+        
+        <Button
+	        android:id="@+id/serial_btnClear"
+	        android:layout_weight="2"
+	        android:layout_width="0dip"
+	        android:layout_height="@dimen/hdiv10"
+	        android:layout_marginLeft="4dip"
+	        android:text="清空"
+	        android:textSize="@dimen/hdiv4"
+	        android:background="@drawable/comm_bk_selector"
+        />
+    </LinearLayout> 
+   
+    
+    <TextView
+        android:id="@+id/serial_tvTTYS0"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serial_btn_linear"
+        android:text="ttyS0:"
+        />
+    <TextView
+        android:id="@+id/serial_ttyS0"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv18"
+        android:layout_below="@id/serial_tvTTYS0"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:hint="/dev/ttyS0 receive:"
+        android:background="@drawable/comm_bk_selector"
+        />
+    
+    <TextView
+        android:id="@+id/serial_tvTTYS1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serial_ttyS0"
+        android:text="ttyS1:"
+        />
+    <TextView
+        android:id="@+id/serial_ttyS1"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv18"
+        android:layout_below="@id/serial_tvTTYS1"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:hint="/dev/ttyS0 receive:"
+        android:background="@drawable/comm_bk_selector"
+        />
+    <TextView
+        android:id="@+id/serial_tvTTYS2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serial_ttyS1"
+        android:text="ttyS2:"
+        />
+    <TextView
+        android:id="@+id/serial_ttyS2"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv18"
+        android:layout_below="@id/serial_tvTTYS2"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:hint="/dev/ttyS0 receive:"
+        android:background="@drawable/comm_bk_selector"
+        />
+    
+    
+    
+    
+    <TextView
+        android:id="@+id/serial_tvLoop"
+        android:layout_width="wrap_content"
+        android:layout_height="30dip"
+        android:layout_below="@id/serial_ttyS2"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:text="自动循环发送:"
+        />
+    
+    <com.enjack.diyviews.SwitchView
+	    android:id="@+id/serial_sending_loop"
+	    android:layout_below="@id/serial_ttyS2"
+	    android:layout_toRightOf="@id/serial_tvLoop"
+	    android:layout_width="60dip"
+	    android:layout_height="30dip"
+	    android:layout_marginTop="10dip"
+	    android:layout_marginLeft="10dip"
+	    />
+</RelativeLayout>

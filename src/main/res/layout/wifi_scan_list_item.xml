@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    
+    <TextView
+        android:id="@+id/idWifiSSID"
+        android:layout_width="@dimen/wdiv60"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2dip"
+        android:layout_alignParentLeft="true"
+        android:textSize="@dimen/hdiv4"
+        android:text="chinal-net"
+        />
+    
+    <TextView
+        android:id="@+id/idWifiSecurity"
+        android:layout_width="@dimen/wdiv60"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idWifiSSID"
+        android:text="wap/wep"
+        />
+    <ImageView
+        android:id="@+id/idWifiSignalIntensity"
+        android:layout_width="@dimen/wdiv10"
+        android:layout_height="@dimen/wdiv10"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+
+</RelativeLayout>
+

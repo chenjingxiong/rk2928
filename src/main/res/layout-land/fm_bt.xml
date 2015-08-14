@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/xmps.androiddebugtool.factorytest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <!-- 标题 -->
+	<include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    	/>
+	
+	<!-- 显示信息 -->
+	<TextView
+	    android:id="@+id/bluetooth_message"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_centerInParent="true"
+	    android:textColor="#ff305030"
+	    android:textSize="@dimen/hdiv4"
+	    android:gravity="center"
+	    />
+	
+	
+	<!-- 开始按钮-->
+	<com.enjack.diyviews.CircleButtonView
+        android:id="@+id/bluetooth_start"
+        android:layout_width="0dip"	
+        android:layout_height="0dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dip"
+        android:layout_alignParentBottom="true"
+        custom:radius="@dimen/hdiv12"
+        custom:text="开始"	
+        custom:textSuggestSize="true"
+        custom:textColor="#ff000000"
+        custom:textColorPressed="#ffffffff"
+        custom:frameColor="#dd007777"
+        custom:frameWidth="2px"
+        custom:bkComm="#eedddddd"
+        custom:bkPressed="#ff9966bb"
+        />
+
+</RelativeLayout>
+
+

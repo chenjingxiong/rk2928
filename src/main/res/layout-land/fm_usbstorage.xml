@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/xmps.androiddebugtool.factorytest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip" >
+    
+    <!-- 标题 -->
+	<include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    	/>
+		
+	<!-- 测试结果 -->
+	<com.enjack.diyviews.ValueTextView
+	    android:id="@+id/usbstorage_tvResult"
+	    android:layout_width="@dimen/wdiv20"
+	    android:layout_height="@dimen/hdiv20"
+	    android:layout_below="@id/mytitle"
+	    android:layout_marginTop="@dimen/hdiv4"
+	    android:layout_centerHorizontal="true"
+	    custom:text="未知"
+	    custom:textSize="@dimen/hdiv9"
+	    custom:textColor="#ff000011"
+	    custom:textStrokeWidth="0dip"
+	    custom:textName="测试结果"
+	    custom:textNameSize="@dimen/hdiv5"
+	    custom:textNameColor="#aa303030"
+	    custom:textNameStrokeWidth="0dp"	
+	    />
+	
+	
+	<LinearLayout
+	    android:id="@+id/usbstorage_line1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/usbstorage_tvResult"
+	    android:layout_marginLeft="@dimen/wdiv2"
+	    android:layout_marginRight="@dimen/wdiv2"
+	    android:layout_marginTop="@dimen/hdiv3"
+	    android:orientation="horizontal"
+	    >
+	    
+	    <!-- 总容量 -->
+		<com.enjack.diyviews.ValueTextView
+		    android:id="@+id/usbstorage_total"
+		    android:layout_weight="1"
+		    android:layout_width="0dip"
+		    android:layout_height="@dimen/hdiv16"
+		    custom:text="0.00"
+		    custom:textSize="40dip"
+		    custom:textColor="#ff000011"
+		    custom:textStrokeWidth="2dip"
+		    custom:textName="总容量(GB)"
+		    custom:textNameSize="@dimen/hdiv3"
+		    custom:textNameColor="#aa303030"
+		    custom:textNameStrokeWidth="0dp"	
+	    	/>
+		
+		<!-- 分割线 -->
+		<com.enjack.diyviews.GradientLineView
+		    android:id="@+id/usbstorage_seperate1"
+		    android:layout_weight="0"
+		    android:layout_width="1dp"
+		    android:layout_height="@dimen/hdiv16"
+		    custom:gradientStartColor="#00000000"
+		    custom:gradientCenterColor="#ff000000"
+		    custom:gradientEndColor="#00000000"
+	   	 	/>
+		
+		<!-- 剩余容量 -->
+		<com.enjack.diyviews.ValueTextView
+		    android:id="@+id/usbstorage_available"
+		    android:layout_weight="1"
+		    android:layout_width="0dip"
+		    android:layout_height="@dimen/hdiv16"
+		    custom:text="0.00"
+		    custom:textSize="40dip"
+		    custom:textColor="#ff000011"
+		    custom:textStrokeWidth="2dip"
+		    custom:textName="剩余(GB)"
+		    custom:textNameSize="@dimen/hdiv3"
+		    custom:textNameColor="#aa303030"
+		    custom:textNameStrokeWidth="0dp"	
+	    	/>
+		
+		<!-- 分割线 -->
+		<com.enjack.diyviews.GradientLineView
+		    android:id="@+id/usbstorage_seperate2"
+		    android:layout_weight="0"
+		    android:layout_width="1dp"
+		    android:layout_height="@dimen/hdiv16"
+		    custom:gradientStartColor="#00000000"
+		    custom:gradientCenterColor="#ff000000"
+		    custom:gradientEndColor="#00000000"
+	   	 	/>
+		
+		<!-- 写速度 -->
+		<com.enjack.diyviews.ValueTextView
+		    android:id="@+id/usbstorage_writespeed"
+		    android:layout_weight="1"
+		    android:layout_width="0dip"
+		    android:layout_height="@dimen/hdiv16"
+		    custom:text="0.00"
+		    custom:textSize="40dip"
+		    custom:textColor="#ff223377"
+		    custom:textStrokeWidth="2dip"
+		    custom:textName="写速度(MB/s)"
+		    custom:textNameSize="@dimen/hdiv3"
+		    custom:textNameColor="#aa305530"
+		    custom:textNameStrokeWidth="0dp"	
+	    	/>
+		
+		<!-- 分割线 -->
+		<com.enjack.diyviews.GradientLineView
+		    android:id="@+id/usbstorage_seperate3"
+		    android:layout_weight="0"
+		    android:layout_width="1dp"
+		    android:layout_height="@dimen/hdiv16"
+		    custom:gradientStartColor="#00000000"
+		    custom:gradientCenterColor="#ff000000"
+		    custom:gradientEndColor="#00000000"
+	   	 	/>
+		
+		<!-- 读速度 -->
+		<com.enjack.diyviews.ValueTextView
+		    android:id="@+id/usbstorage_readspeed"
+		    android:layout_weight="1"
+		    android:layout_width="0dip"
+		    android:layout_height="@dimen/hdiv16"
+		    custom:text="0.00"
+		    custom:textSize="40dip"
+		    custom:textColor="#ff223377"
+		    custom:textStrokeWidth="2dip"
+		    custom:textName="读速度(MB/s)"
+		    custom:textNameSize="@dimen/hdiv3"
+		    custom:textNameColor="#aa305530"
+		    custom:textNameStrokeWidth="0dp"	
+		    />
+	</LinearLayout>    
+
+	
+	<!-- 测试过程信息-->
+	<TextView
+	    android:id="@+id/usbstorage_tvInfo"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/usbstorage_line1"
+	    android:layout_marginTop="@dimen/hdiv6"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center"
+	    android:textColor="#88000000"
+	    android:textSize="@dimen/hdiv4"
+	    />
+	
+	<!-- 开始按钮-->
+	<com.enjack.diyviews.CircleButtonView
+        android:id="@+id/usbstorage_start"
+        android:layout_width="0dip"	
+        android:layout_height="0dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dip"
+        android:layout_alignParentBottom="true"
+        custom:radius="@dimen/hdiv12"
+        custom:text="开始"	
+        custom:textSuggestSize="true"
+        custom:textColor="#ff000000"
+        custom:textColorPressed="#ffffffff"
+        custom:frameColor="#dd007777"
+        custom:frameWidth="2px"
+        custom:bkComm="#eedddddd"
+        custom:bkPressed="#ff9966bb"
+        />
+	
+</RelativeLayout>

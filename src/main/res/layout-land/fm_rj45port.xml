@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.enjack.factorytesttool"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+	<!-- 标题 -->
+	<include
+    	android:id="@+id/mytitle"
+    	layout="@layout/title"
+    	/>
+	
+	<ProgressBar android:id="@+id/rj45_progress_horizontal"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_below="@id/mytitle"
+        android:layout_marginLeft="@dimen/wdiv3"
+	    android:layout_marginRight="@dimen/wdiv3"
+	    android:layout_marginTop="1px"
+	    android:layout_marginBottom="1dip"
+	    android:padding="0dip"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_bar_bk"
+        />
+	
+	<LinearLayout
+	    android:id="@+id/rj45_linear1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="@dimen/hdiv12"
+	    android:layout_below="@id/rj45_progress_horizontal"
+	    android:layout_marginLeft="@dimen/wdiv3"
+	    android:layout_marginRight="@dimen/wdiv3"
+	    android:layout_marginBottom="1dip"
+	    android:orientation="horizontal"
+	    >
+	    <EditText
+	        android:id="@+id/rj45_address"
+	        android:layout_width="0dip"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="4"
+	        android:hint="http//www.baidu.com"
+	        android:background="@drawable/comm_bk_shape"
+	        android:textSize="12sp"
+	        />
+	    <Button
+	        android:id="@+id/rj45_go"
+	        android:layout_width="0dip"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1"
+	        android:layout_marginLeft="1dip"
+	        android:text="Go"
+	        android:textSize="12sp"
+	        android:background="@drawable/comm_bk_selector"
+	        />
+	</LinearLayout>
+	
+	<WebView 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/rj45_linear1"
+	    android:layout_marginBottom="1dip"
+	    android:layout_marginTop="1dip"
+	    android:id="@+id/rj45_webView"
+	    />
+</RelativeLayout>

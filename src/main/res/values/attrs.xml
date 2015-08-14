@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="DiyViews">  
+	    <attr name="text" format="string" />
+	    <attr name="textColor" format="color" />
+	    <!-- 按下的颜色 -->
+	    <attr name="textColorPressed" format="color" />
+	    <!-- Disable状态的颜色 -->
+	    <attr name="textColorInvalid" format="color" />
+	    <attr name="textSize" format="dimension" />
+	    <!-- 根据view的大小给出建议的字体大小 ，如果设置为true，textSize将不起作用-->
+	    <attr name="textSuggestSize" format="boolean" />
+	    <attr name="textPadding" format="dimension" />
+	    <attr name="textPaddingTop" format="dimension" />
+	    <attr name="textPaddingLeft" format="dimension" />
+	    <attr name="textPaddingRight" format="dimension" />
+	    <attr name="textPaddingBottom" format="dimension" />
+	    <attr name="textGravity" format="enum" >
+	        <enum name="center" value="1" />
+	        <enum name="center_left" value="2" />
+	        <enum name="center_right" value="3" />
+	        <enum name="center_top" value="4" />
+	        <enum name="center_bottom" value="5" />
+	        <enum name="left_top" value="6" />
+	        <enum name="right_top" value="7" />
+	        <enum name="left_bottom" value="8" />
+	        <enum name="right_bottom" value="9" />
+	        <enum name="gravity_default" value="1" />
+	    </attr>
+	    <attr name="bkComm" format="reference|color" />
+	    <!-- 按下的背景 -->
+	    <attr name="bkPressed" format="reference|color" />
+	    <!-- Disable状态的背景 -->
+	    <attr name="bkInvalid" format="reference|color" />
+	    
+	    <attr name="radius" format="dimension" />
+	    <attr name="frameColor" format="color" />
+	    <attr name="frameWidth" format="dimension" />
+	    
+	    
+	    <!-- ValueTextView -->
+	    <attr name="ratio" format="float" />
+	    <attr name="textName" format="string" />
+	    <attr name="textNameColor" format="color" />
+	    <attr name="textNameSize" format="dimension" />
+	    <attr name="textStrokeWidth" format="dimension" />
+	    <attr name="textNameStrokeWidth" format="dimension" />
+	    <attr name="upper" format="boolean" />
+	    
+	    
+	    <!-- GradientLineView -->
+	    <attr name="gradientStartColor" format="color" />
+	    <attr name="gradientCenterColor" format="color" />
+	    <attr name="gradientEndColor" format="color" />
+	    
+	    <!-- SwitchView -->
+	    <attr name="switchState" format="boolean" />
+	    <attr name="offColor" format="color" />
+	    <attr name="onColor" format="color" />
+    </declare-styleable> 
+    
+</resources>

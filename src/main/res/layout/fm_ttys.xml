@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <include
+        android:id="@+id/mytitle"
+        layout="@layout/title"
+        />
+
+    <TextView
+        android:id="@+id/ttys_tv_receive"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv20"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_below="@id/mytitle"
+        android:background="@drawable/comm_bk_selector"
+        />
+
+    <TextView
+        android:id="@+id/ttys_tv_receive_cnt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ttys_tv_receive"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="1dip"
+        android:text="接收:0"
+        />
+
+    <EditText
+        android:id="@+id/ttys_et_send"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv15"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip"
+        android:layout_below="@id/ttys_tv_receive_cnt"
+        android:background="@drawable/comm_bk_selector"
+        android:text="Hello world"
+        />
+
+    <TextView
+        android:id="@+id/ttys_tv_send_cnt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ttys_et_send"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="1dip"
+        android:text="发送:0"
+        />
+
+    <RelativeLayout
+        android:id="@+id/ttys_layout_line1"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv7"
+        android:layout_marginTop="15dip"
+        android:layout_marginLeft="10dip"
+        android:layout_below="@id/ttys_tv_send_cnt"
+        android:padding="0dip"
+        >
+
+        <TextView
+            android:id="@+id/ttys_tv_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="间隔"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:id="@+id/ttys_et_time"
+            android:layout_width="@dimen/wdiv20"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/ttys_tv_text1"
+            android:layout_marginLeft="1dip"
+            android:background="@drawable/comm_bk_selector"
+            android:text="1000"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/ttys_tv_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="1dip"
+            android:text="ms自动发送"
+            android:layout_toRightOf="@id/ttys_et_time"
+            android:gravity="center"
+            />
+
+        <com.enjack.diyviews.SwitchView
+            android:id="@+id/ttys_switch_auto_send"
+            android:layout_toRightOf="@id/ttys_tv_text2"
+            android:layout_width="60dip"
+            android:layout_height="30dip"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="15dip"
+            android:layout_centerVertical="true"
+            />
+
+        <Spinner
+            android:id="@+id/ttys_sp_baundrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ttys_layout_line2"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv10"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip"
+        android:layout_below="@id/ttys_layout_line1"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/ttys_btn_clr_receive"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/comm_bk_selector"
+            android:text="清空接收"
+            />
+
+        <Button
+            android:id="@+id/ttys_btn_clr_receive_cnt"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/comm_bk_selector"
+            android:text="清空接收计数"
+            />
+
+        <Button
+            android:id="@+id/ttys_btn_clr_send"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/comm_bk_selector"
+            android:text="清空发送"
+            />
+
+        <Button
+            android:id="@+id/ttys_btn_clr_send_cnt"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/comm_bk_selector"
+            android:text="清空发送计数"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ttys_layout_line3"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv10"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip"
+        android:layout_below="@id/ttys_layout_line2"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/ttys_btn_open"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/comm_bk_selector"
+            android:text="打开"
+            />
+
+        <Button
+            android:id="@+id/ttys_btn_close"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/comm_bk_selector"
+            android:text="关闭"
+            />
+
+        <Button
+            android:id="@+id/ttys_btn_send"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:background="@drawable/comm_bk_selector"
+            android:text="发送"
+            />
+    </LinearLayout>
+</RelativeLayout>

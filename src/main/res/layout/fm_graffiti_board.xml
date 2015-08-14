@@ -9,7 +9,7 @@
     	layout="@layout/title"
     	/>
     
-	<com.enjack.modules.GraffitiBoardView
+	<xmps.androiddebugtool.factorytest.testmodules.GraffitiBoardView
 	    android:id="@+id/graffiti_board"
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"

@@ -23,8 +23,8 @@ import xmps.androiddebugtool.factorytest.chain.ItemDescription;
 
 
 /**
- * ���ڲ���
- * 
+ * 串口测试
+ *
  * @author enjack
  * */
 public class SerialTestFragment extends BaseTestItemFragment {
@@ -42,10 +42,10 @@ public class SerialTestFragment extends BaseTestItemFragment {
     {  
 		view = inflater.inflate(R.layout.fm_serial, container, false);
 		TextView tv = (TextView)view.findViewById(R.id.title);
-		tv.setText("���ڲ���");
+		tv.setText("串口测试");
 		
 		if(!checkPermission()){
-			Toast.makeText(getActivity(), "���ڶ�дȨ��������!", Toast.LENGTH_LONG).show();
+			Toast.makeText(getActivity(), "串口读写权限受限制!", Toast.LENGTH_LONG).show();
 			return view;
 		}
 		
@@ -225,14 +225,14 @@ private class MyHandler extends Handler{
 				handler.obtainMessage(2, sb2).sendToTarget();
 			}
 		}}
-	
-	/** 
-     * ����һ���������������ĸ�ַ���(ֻ������Сд��ĸ) 
-     *  
-     * @param length 
-     *            ����ַ������� 
-     * @return ����ַ��� 
-     */  
+
+	/**
+	 * 返回一个定长的随机纯字母字符串(只包含大小写字母)
+	 *
+	 * @param length
+	 *            随机字符串长度
+	 * @return 随机字符串
+	 */
 	private String getRandomString(int length) { 
 	    String base = "abcdefghijklmnopqrstuvwxyz0123456789";     
 	    Random random = new Random();     
@@ -248,9 +248,9 @@ private class MyHandler extends Handler{
 	public ItemDescription getItemDescription() {
 		// TODO Auto-generated method stub
 		ItemDescription item = new ItemDescription();
-		item.title = "���ڲ���";
+		item.title = "串口测试";
 		item.board = "rk2928";
-		item.desc = "����/dev/ttyS0��/dev/ttyS1��/dev/ttyS2�����շ�����";
+		item.desc = "测试/dev/ttyS0、/dev/ttyS1、/dev/ttyS2串口收发功能";
 		return item;
 	} 
 }

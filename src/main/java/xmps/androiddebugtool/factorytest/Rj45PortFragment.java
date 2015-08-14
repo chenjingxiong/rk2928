@@ -32,7 +32,7 @@ import xmps.androiddebugtool.factorytest.chain.BaseTestItemFragment;
 import xmps.androiddebugtool.factorytest.chain.ItemDescription;
 
 /**
- * RJ45���ڲ��� 
+ * RJ45网口测试
  * */
 public class Rj45PortFragment extends BaseTestItemFragment {
 	private final String tag = "<Rj45PortFragment>";
@@ -50,7 +50,7 @@ public class Rj45PortFragment extends BaseTestItemFragment {
             Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fm_rj45port, container, false);
 		TextView title = (TextView)v.findViewById(R.id.title);
-		title.setText("RJ45���ڲ���");
+		title.setText("RJ45网口测试");
 		handler = new MainHandler();
 		closeOtherNetwork();
 		checkingNetWorkStatus();
@@ -87,7 +87,7 @@ public class Rj45PortFragment extends BaseTestItemFragment {
 				if(timerTask!=null)
 					timerTask.cancel();
 				initWebView();
-				Toast.makeText(getActivity(), "�Ѿ��ر�������������", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "已经关闭其他网络连接", Toast.LENGTH_SHORT).show();
 				break;
 			case 1:
 				if(timer!=null)
@@ -96,7 +96,7 @@ public class Rj45PortFragment extends BaseTestItemFragment {
 					timerTask.cancel();
 				initWebView();
 				SwitchUtil.wifi(getActivity(), true);
-				Toast.makeText(getActivity(), "�������ģʽ�����ڴ�wifi...", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "进入调试模式，正在打开wifi...", Toast.LENGTH_SHORT).show();
 				break;
 			case 2:
 				progressbar.setProgress(0);
@@ -126,7 +126,7 @@ public class Rj45PortFragment extends BaseTestItemFragment {
 				//address.requestFocus();
 				InputMethodManager imm = (InputMethodManager)getActivity().
 						getSystemService(Context.INPUT_METHOD_SERVICE);
-				imm.showSoftInput(v,InputMethodManager.SHOW_FORCED);//ǿ����ʾ���뷨
+				imm.showSoftInput(v,InputMethodManager.SHOW_FORCED);//强制显示输入法
 				break;
 			case R.id.rj45_go:
 				String str = address.getText().toString();
@@ -149,12 +149,12 @@ public class Rj45PortFragment extends BaseTestItemFragment {
 				break;
 			}
 		}}
-	
-	/**�ر�wifi���������ӣ�ֻ��������������*/
+
+	/**关闭wifi和数据连接，只用有线网络上网*/
 	private void closeOtherNetwork(){
 		//close wifi
 		SwitchUtil.wifi(getActivity(), false);
-		//�ر���������
+		//关闭数据连接
 		
 	}
 	
@@ -209,9 +209,9 @@ public class Rj45PortFragment extends BaseTestItemFragment {
 
             }
         });
-		web.getSettings().setJavaScriptEnabled(true);//֧��javascript
-		//web.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//����ʹ�û���
-		web.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);//��ʹ�û���
+		web.getSettings().setJavaScriptEnabled(true);//支持javascript
+		//web.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//优先使用缓存
+		web.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);//不使用缓存
 		web.loadUrl("http://www.baidu.com");
 	}
 	
@@ -235,9 +235,9 @@ public class Rj45PortFragment extends BaseTestItemFragment {
 	public ItemDescription getItemDescription() {
 		// TODO Auto-generated method stub
 		ItemDescription item = new ItemDescription();
-		item.title = "���ڲ���";
+		item.title = "网口测试";
 		item.board = "rk2928-pad";
-		item.desc = "pad(np10)��Ʊ��������������";
+		item.desc = "pad(np10)开票机网口上网测试";
 		return item;
 	}
 }

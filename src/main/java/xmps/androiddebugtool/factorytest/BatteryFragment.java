@@ -22,7 +22,9 @@ import xmps.androiddebugtool.factorytest.chain.BaseTestItemFragment;
 import xmps.androiddebugtool.factorytest.chain.ItemDescription;
 
 /**
- * ��ز��� 
+ * 电池充电测试
+ *
+ * @author enjack
  * */
 public class BatteryFragment extends BaseTestItemFragment {
 	private final String tag = "<BatteryFragment>";
@@ -44,7 +46,7 @@ public class BatteryFragment extends BaseTestItemFragment {
 		this.getActivity().registerReceiver(batteryReceiver, intentFilter);
 		
 		TextView tv = (TextView)v.findViewById(R.id.title);
-		tv.setText("��ز���");
+		tv.setText("电池充电测试");
 		circleView = (CircleButtonView)v.findViewById(R.id.battery_cap);
 		chargeView = (TextView)v.findViewById(R.id.battery_charge);
 		circleView.setDrawExtraCallBack(new CircleButtonView.DrawExtraCallBack(){
@@ -100,7 +102,7 @@ public class BatteryFragment extends BaseTestItemFragment {
 					break;
 				}
 				if(isCharging){
-					chargeView.setText("���ڳ��");
+					chargeView.setText("正在充电");
 					circleView.setBackgroundColor(Color.argb(0xff, 0xee, 0x44, 0x44));
 					circleView.setFrame(Color.argb(0xff, 0xee, 0x44, 0x44), 10);
 				}
@@ -120,9 +122,9 @@ public class BatteryFragment extends BaseTestItemFragment {
 	public ItemDescription getItemDescription() {
 		// TODO Auto-generated method stub
 		ItemDescription item = new ItemDescription();
-		item.title = "��ز���";
-		item.board = "ͨ��";
-		item.desc = "��ز���";
+		item.title = "电池充电测试";
+		item.board = "通用";
+		item.desc = "电池充电";
 		return item;
 	}
 

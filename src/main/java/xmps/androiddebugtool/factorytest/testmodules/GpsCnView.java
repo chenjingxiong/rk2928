@@ -1,9 +1,5 @@
 package xmps.androiddebugtool.factorytest.testmodules;
 
-import java.util.ArrayList;
-
-import com.enjack.diyviews.DrawEfficiencyAnalysts;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -17,6 +13,10 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.enjack.diyviews.DrawEfficiencyAnalysts;
+
+import java.util.ArrayList;
 
 public class GpsCnView extends View {
 	private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("GpsCnView", 3);

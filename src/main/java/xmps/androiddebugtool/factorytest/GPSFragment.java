@@ -24,7 +24,7 @@ import xmps.androiddebugtool.factorytest.testmodules.GpsCnView;
 
 
 /**
- * gps����
+ * gps测试
  * 
  * @author enjack
  * */
@@ -60,7 +60,7 @@ public class GPSFragment extends BaseTestItemFragment
 		}
 		//
 		TextView title = (TextView)v.findViewById(R.id.title);
-		title.setText("GPSλ�÷������");
+		title.setText("GPS搜星测试");
 		gpsSatNum = (ValueTextView)v.findViewById(R.id.gps_sat_num);
 		gpsLarge37 = (ValueTextView)v.findViewById(R.id.gps_large37);
 		gpsLongitude = (ValueTextView)v.findViewById(R.id.gps_longitude);
@@ -99,15 +99,15 @@ public class GPSFragment extends BaseTestItemFragment
 				if(1==msg.arg1){//gps off
 					//Intent intent = new Intent(Settings.ACTION_SETTINGS);
 					//GPSFragment.this.getActivity().startActivityForResult(intent, 0);
-					gpsMessage.setText("[����]GPSδ��!!!");
+					gpsMessage.setText("[错误]GPS未打开!!!");
 				}
 				else if(2==msg.arg1){//device didn't support gps
-					gpsMessage.setText("[����]���豸û��GPS����!!!");
+					gpsMessage.setText("[错误]该设备没有GPS功能!!!");
 				}
 				break;
 			}
 			case 1:{//onTestStart
-				gpsMessage.setText("׼����ʼ����...");
+				gpsMessage.setText("准备开始测试...");
 				break;
 			}
 			case 2:{//onTestStop
@@ -119,14 +119,14 @@ public class GPSFragment extends BaseTestItemFragment
 				if(speed<1000){
 					String strSpeed = String.format("%.2f", speed);
 					gpsSpeed.setValue(strSpeed);
-					gpsSpeed.setName("�ٶ�(m/s)");
+					gpsSpeed.setName("速度(m/s)");
 					gpsSpeed.postInvalidate();
 				}
 				else{
 					speed = speed*3.6f;
 					String strSpeed = String.format("%.2f", speed);
 					gpsSpeed.setValue(strSpeed);
-					gpsSpeed.setName("�ٶ�(Km/h)");
+					gpsSpeed.setName("速度(Km/h)");
 					gpsSpeed.postInvalidate();
 				}
 				break;
@@ -145,7 +145,7 @@ public class GPSFragment extends BaseTestItemFragment
 				String strLong = String.format("%.2f", longitude);
 				gpsLongitude.setValue(strLong);
 				gpsLongitude.postInvalidate();
-				gpsMessage.setText("[�ɹ�]GPS�Ѷ�λ!!!");
+				gpsMessage.setText("[成功]GPS已定位!!!");
 				break;
 			}
 			case 6:{//onAltitude
@@ -209,9 +209,9 @@ public class GPSFragment extends BaseTestItemFragment
 	public ItemDescription getItemDescription() {
 		// TODO Auto-generated method stub
 		ItemDescription item = new ItemDescription();
-		item.board = "ͨ��";
-		item.desc = "����gps���Ǽ���ȡλ����Ϣ";
-		item.title = "GPS����";
+		item.board = "通用";
+		item.desc = "测试gps搜星及获取位置信息";
+		item.title = "GPS测试";
 		return item;
 	}
 

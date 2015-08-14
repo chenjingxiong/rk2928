@@ -93,7 +93,7 @@
 			    />
 			
 			<!-- cn值柱状图 -->
-			<com.enjack.modules.GpsCnView
+			<xmps.androiddebugtool.factorytest.testmodules.GpsCnView
 			    android:id="@+id/gps_cn"
 			    android:layout_width="fill_parent"
 			    android:layout_height="@dimen/hdiv50"

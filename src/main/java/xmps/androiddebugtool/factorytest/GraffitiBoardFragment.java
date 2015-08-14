@@ -12,7 +12,7 @@ import xmps.androiddebugtool.factorytest.testmodules.GraffitiBoardView;
 
 
 /**
- * Ϳѻ�壬�������Ի����ɱ�
+ * Ϳ涂鸦板
  * 
  * @author enjack
  * */
@@ -25,7 +25,7 @@ public class GraffitiBoardFragment extends BaseTestItemFragment {
 					Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fm_graffiti_board, container,false);
 		TextView tv = (TextView)v.findViewById(R.id.title);
-		tv.setText("Ϳѻ��");
+		tv.setText("涂鸦板");
 		graffiti = (GraffitiBoardView)v.findViewById(R.id.graffiti_board);
 		return v;
 	}
@@ -41,9 +41,9 @@ public class GraffitiBoardFragment extends BaseTestItemFragment {
 	public ItemDescription getItemDescription() {
 		// TODO Auto-generated method stub
 		ItemDescription item = new ItemDescription();
-		item.title = "Ϳѻ��";
-		item.board = "ͨ��";
-		item.desc = "�����Ƿ�ɱ�";
+		item.title = "涂鸦板";
+		item.board = "通用";
+		item.desc = "滑动触摸飞笔测试";
 		return item;
 	}
 

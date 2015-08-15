@@ -48,9 +48,9 @@ public class TestProcedures {
 
 	/**测试流程顺序*/
 	private String item_table[] = {
+            ITEM_SOUND,
             ITEM_SERIAL_TTYS0,
 			ITEM_START_PAGE,
-			ITEM_SOUND,
 			ITEM_WIFI,
 			ITEM_RJ45PORT,
 			ITEM_GPS,

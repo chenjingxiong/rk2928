@@ -4,6 +4,7 @@ package xmps.androiddebugtool.factorytest;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.enjack.diyviews.SimpleView;
 
 import xmps.androiddebugtool.factorytest.chain.FragmentChainManager;
 import xmps.androiddebugtool.stresstest.StressTestActivity;
+import xmps.androiddebugtool.tools.CommToolsActivity;
 
 public class StartPageFragment extends Fragment implements FragmentChainManager.FragmentChainChangeListener {
 	
@@ -29,6 +31,8 @@ public class StartPageFragment extends Fragment implements FragmentChainManager.
 		allTestItem.setOnClickListener(new ButtonListener());
 		SimpleView stressTools = (SimpleView)v.findViewById(R.id.stress_test_tools);
 		stressTools.setOnClickListener(new ButtonListener());
+        SimpleView commTools = (SimpleView)v.findViewById(R.id.comm_tools);
+        commTools.setOnClickListener(new ButtonListener());
 		//
 		MainActivity activity = (MainActivity)this.getActivity();
 		activity.requestFullScreen(true);
@@ -81,6 +85,11 @@ public class StartPageFragment extends Fragment implements FragmentChainManager.
 				getActivity().startActivity(intent);
 				break;
 			}
+            case R.id.comm_tools:{
+                Intent intent = new Intent(getActivity(), CommToolsActivity.class);
+                startActivity(intent);
+                break;
+            }
 			case R.id.start_factory_test:
 				mafmm.next();
 				//MainActivity activity = (MainActivity)getActivity();

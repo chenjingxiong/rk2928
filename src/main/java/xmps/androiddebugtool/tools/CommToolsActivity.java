@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import xmps.androiddebugtool.factorytest.R;
-import xmps.androiddebugtool.stresstest.InternetVideoPlayerActivity;
+import xmps.androiddebugtool.tools.colorboard.ColorBoardActivity;
 
 /**
  * Created by enjack on 2015/8/16.
@@ -37,8 +37,8 @@ public class CommToolsActivity extends ActionBarActivity {
                 // TODO Auto-generated method stub
                 switch(position){
                     case 0:
-                        //Intent intent = new Intent(StressTestActivity.this, InternetVideoPlayerActivity.class);
-                       // startActivity(intent);
+                        Intent intent = new Intent(CommToolsActivity.this, ColorBoardActivity.class);
+                        startActivity(intent);
                         break;
                 }
             }});

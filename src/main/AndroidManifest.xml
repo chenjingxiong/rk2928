@@ -68,6 +68,11 @@
         </activity>
 
         <activity
+            android:label="调色板"
+            android:name="xmps.androiddebugtool.tools.colorboard.ColorBoardActivity">
+        </activity>
+
+        <activity
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             android:name="xmps.androiddebugtool.stresstest.InternetVideoPlayerActivity">
         </activity>

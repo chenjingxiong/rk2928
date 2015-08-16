@@ -734,7 +734,8 @@ public class SimpleView extends View {
 			onTouchUp(x, y);
 			if(System.currentTimeMillis() - mTouchUpTime < 300)
 				onDoubleClicked();
-			else if(mFirstPoint.x==x && mFirstPoint.y==y)
+			//else if(mFirstPoint.x==x && mFirstPoint.y==y)
+			else if(Math.abs(mFirstPoint.x-x)<=10 && Math.abs(mFirstPoint.y-y)<=10)
 				onClicked();
 			mTouchUpTime = System.currentTimeMillis();
 			if(0==mPreTouchState ){

@@ -1,33 +1,71 @@
 package com.enjack.diyviews;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import xmps.androiddebugtool.factorytest.R;
 
 /**
+ * 圆形的button。不支持图片。有关UI更新操作要invalid view。
+ *
+ * </br></br>
+ * xml:</br>
+         android:id="@+id/id_dbg_ccbv"  </br>
+         android:layout_width="0dip"    </br>
+         android:layout_height="0dip"   </br>
+         custom:bkColor="#ff990000"     </br>
+         custom:bkColorPressed="#ff000099"      </br>
+         custom:radius="@dimen/wdiv25"  </br>
+         custom:frameColor="#ff00ff00"  </br>
+         custom:frameWidth="6px"        </br>
+         custom:text="Circle"           </br>
+         custom:textSize="12sp"         </br>
+         custom:textSuggestSize="true"  </br>
+         custom:textColor="#ffeeffee"   </br>
+         custom:textColorPressed="#84480d98"    </br>
+ @author enjack
  * Created by enjack on 2015/8/16.
  */
 public class CircleColorButtonView extends View{
 
-    protected static final int INVALID_COLOR = Integer.MAX_VALUE;
+    private final int INVALID_COLOR = Integer.MAX_VALUE;
+    private final int MAX_FONT_SIZE = 1000;
     private final String tag = "<CircleColorButtonView>";
-    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleButtonView", 1);
+    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleColorButtonView", 1);
+    private DrawExtraCallBack mCallBackDraw = null;
     private int mRadius = -1;
     private int mHeight = 0;
     private int mWidth = 0;
-    protected int mFrameColor = INVALID_COLOR;
-    protected int mFrameWidth = -1;
+    private boolean mSuggestTextSize = false;
+    private String mText = "";
+    private int mTextSize = 0;
+    private int mFrameColor = INVALID_COLOR;
+    private int mFrameWidth = -1;
+    private int mColorBackground = Color.argb(0, 0, 0, 99);
+    private int mColorBackgroundPressed = Color.argb(0, 0, 0, 0);
+    private int mColorText = Color.argb(255, 0, 0, 0);
+    private int mColorTextPressed = Color.argb(255, 0, 0, 0);
+    private Paint mPaintBackround = null;
+    private Paint mPaintFrame = null;
+    private Paint mPaintText = null;
 
     public CircleColorButtonView(Context context) {
-        super(context);
+        //super(context);
+        this(context, null);
     }
 
     public CircleColorButtonView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        //super(context, attrs);
+        this(context, attrs, 0);
     }
 
 //    public CircleColorButtonView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -50,16 +88,49 @@ public class CircleColorButtonView extends View{
                 case R.styleable.DiyViews_radius:
                     mRadius = array.getDimensionPixelSize(index, -1);
                     break;
+                case R.styleable.DiyViews_textSuggestSize:
+                    mSuggestTextSize = array.getBoolean(index, false);
+                    break;
+                case R.styleable.DiyViews_text:
+                    mText = array.getString(index);
+                    break;
+                case R.styleable.DiyViews_textSize:
+                    mTextSize = array.getDimensionPixelSize(index, 35);
+                    break;
+                case R.styleable.DiyViews_textColorPressed:
+                    mColorTextPressed = array.getColor(index, mColorTextPressed);
+                case R.styleable.DiyViews_bkColor:
+                    mColorBackground = array.getColor(index, mColorBackground);
+                    break;
             }
         }
 
         array.recycle();
+        initPaint();
     }
 
     @Override
     protected void onDraw(Canvas canvas){
         mAnalysts.pre();
+        //draw background color
+        canvas.drawCircle(mRadius, mRadius, mRadius, mPaintBackround);
 
+        //draw frame
+        if(INVALID_COLOR!=mFrameColor && -1!=mFrameWidth){
+            canvas.drawCircle(mRadius, mRadius, (float)(mRadius-(float)mFrameWidth/2f), mPaintFrame);
+        }
+
+        //draw text
+        float x,y;
+        int width = getExactlyTextWidth(mPaintText, mText);
+        Paint.FontMetrics fm = mPaintText.getFontMetrics();
+        x = (mWidth-width)/2;
+        y = mHeight/2+(-fm.ascent-fm.descent)/2;
+        canvas.drawText(mText, x, y, mPaintText);
+
+        //draw extras
+        if(mCallBackDraw!=null)
+            mCallBackDraw.drawExtra(canvas);
         mAnalysts.post();
     }
 
@@ -67,5 +138,255 @@ public class CircleColorButtonView extends View{
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
         mWidth = mHeight = mRadius*2;
         setMeasuredDimension(mWidth, mHeight);
+    }
+
+    private void initPaint(){
+        mPaintBackround = new Paint();
+        mPaintBackround.setAntiAlias(true);
+        mPaintBackround.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaintBackround.setColor(mColorBackground);
+
+        mPaintFrame = new Paint();
+        mPaintFrame.setAntiAlias(true);
+        mPaintFrame.setColor(mFrameColor);
+        mPaintFrame.setStyle(Paint.Style.STROKE);
+        mPaintFrame.setStrokeWidth(mFrameWidth);
+
+        mPaintText = new Paint();
+        mPaintText.setAntiAlias(true);
+        mPaintText.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaintText.setColor(mColorText);
+        if(mSuggestTextSize)
+            mTextSize = getSuggestFontSize(mText);
+        mPaintText.setTextSize(mTextSize);
+    }
+
+
+    /**
+     * 根据给定的字符串，获取view建议的字体大小，包括padding边距也计算在内。
+     * PS:该方法是根据mPaint的设置来计算的，mPaint必须正确设置初始化。
+     *
+     * @param	text
+     * 	要计算的字符串。
+     *
+     * @return
+     * 	字体大小。
+     * */
+    public int getSuggestFontSize(String text){
+        float suggestScale = 0.9f;
+        int size = 0;
+        Circle circle = new Circle(0, 0, 0);
+        Rect rc = new Rect();
+        for(int i=0; i<MAX_FONT_SIZE; i++){
+            mPaintText.setTextSize(i);
+            rc = getTextDisplayRect(mPaintText, text);
+            int centerX = (int)((rc.left+rc.right)/2);
+            int centerY = (int)((rc.top+rc.bottom)/2);
+            int offsetX = mRadius - centerX;
+            int offsetY = mRadius - centerY;
+            rc.left += offsetX;
+            rc.right += offsetX;
+            rc.top += offsetY;
+            rc.bottom += offsetY;
+//            Circle circle = new Circle((int)(mRadius*suggestScale),
+//                    (int)(mRadius*suggestScale),
+//                    (int)(mRadius*suggestScale));
+            circle.setPoint((int)(mRadius*suggestScale),
+                    (int)(mRadius*suggestScale),
+                    (int)(mRadius*suggestScale));
+            if(!circle.contains(rc)){
+                size = i-1;
+                break;
+            }
+        }
+
+        if(size>MAX_FONT_SIZE)
+            size = 0;
+
+        return size;
+    }
+
+    /**
+     * 获取字符串显示的矩形区域。直接用getTextBounds会得到负数，这里转换成正数。
+     * */
+    private Rect getTextDisplayRect(Paint p, String str){
+        Rect rc = new Rect();
+        p.getTextBounds(str, 0, str.length(), rc);
+        if(rc.left<0){
+            rc.left = Math.abs(rc.left);
+            rc.right += 2*rc.left;
+        }
+        if(rc.top<0){
+            rc.top = Math.abs(rc.top);
+            rc.bottom += 2*rc.top;
+        }
+        return rc;
+    }
+
+
+    /**
+     * 精确的计算字符串的显示长度。
+     * */
+    private int getExactlyTextWidth(Paint paint, String str) {
+        int iRet = 0;
+        if (str != null && str.length() > 0) {
+            int len = str.length();
+            float[] widths = new float[len];
+            paint.getTextWidths(str, widths);
+            for (int j = 0; j < len; j++) {
+                iRet += (int) Math.ceil(widths[j]);
+            }
+        }
+        return iRet;
+    }
+
+    /**Get radius of the circle view*/
+    public int getRadius(){
+        return mRadius;
+    }
+
+    /**Set view's text.Should invalid view.*/
+    public void setText(String text){
+        mText = text;
+    }
+
+    /**Set text color.Should invalid view.*/
+    public void setTextColor(int color){
+        mColorText = color;
+    }
+
+    /**Set text size.Should invalid view.*/
+    public void setTextSize(int size){
+        mTextSize = size;
+    }
+
+    /**If true, the text size is automatically calculated by view.*/
+    public void setSuggestTextSize(boolean suggeste){
+        mSuggestTextSize = suggeste;
+    }
+
+    /**Set text color when view pressed.*/
+    public void setTextColorPressed(int color){
+        mColorTextPressed = color;
+    }
+
+    /**Set background color.*/
+    public void setBackgroundColor(int color){
+        mColorBackground = color;
+    }
+
+    /**Set background color when view pressed.*/
+    public void setBackgroundColorPressed(int color){
+        mColorBackgroundPressed = color;
+    }
+
+    /**Set frame color.*/
+    public void setFrameColor(int color){
+        mFrameColor = color;
+    }
+
+    /**Set frame width.*/
+    public void setFrameWidth(int width){
+        mFrameWidth = width;
+    }
+
+    /**Set extra draw call back.*/
+    public void setDrawExtraCallBack(DrawExtraCallBack cb){
+        mCallBackDraw = cb;
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        if(MotionEvent.ACTION_DOWN == (event.getAction()&MotionEvent.ACTION_MASK)){
+            mPaintText.setColor(mColorTextPressed);
+            mPaintBackround.setColor(mColorBackgroundPressed);
+            this.invalidate();
+        }
+        else if(MotionEvent.ACTION_UP == (event.getAction()&MotionEvent.ACTION_MASK)){
+            mPaintText.setColor(mColorText);
+            mPaintBackround.setColor(mColorBackground);
+            this.invalidate();
+        }
+        return true;
+    }
+
+    public static interface DrawExtraCallBack{
+        public void drawExtra(Canvas canvas);
+    }
+
+    /**
+     * 圆形类。
+     * */
+    protected class Circle{
+
+        private int x;
+        private int y;
+        private int radius;
+
+        /**
+         * @param x
+         * 	圆心x坐标
+         * @param y
+         * 	圆心y坐标
+         * @param	radius
+         * 	半径
+         * */
+        public Circle(int x, int y, int radius){
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+        }
+
+        public Point getCenterPoint(){
+            return new Point(this.x, this.y);
+        }
+
+        public int getRadius(){
+            return this.radius;
+        }
+
+        /**
+         * 设置圆的属性
+         *
+         * @param x
+         *  圆心x坐标
+         *  @param y
+         *  圆心y坐标
+         *
+         *  @param radius
+         *  半径
+         * */
+        public void setPoint(int x, int y, int radius){
+            this.x = x;
+            this.y =y;
+            this.radius = radius;
+        }
+
+        /**
+         * 判断点是否在圆内。
+         * */
+        public boolean contains(int x, int y){
+            return ((x-this.x)*(x-this.x)+(y-this.y)*(y-this.y)<radius*radius);
+        }
+
+        /**
+         * 判断矩形是否在圆内。
+         * */
+        public boolean contains(Rect rect){
+            if(contains(rect.left, rect.top)&&
+                    contains(rect.left, rect.bottom)&&
+                    contains(rect.right, rect.top)&&
+                    contains(rect.right, rect.bottom))
+                return true;
+            else
+                return false;
+        }
+
+        @Override
+        public String toString(){
+            String str = "x:"+x+" y:"+y+" radius:"+radius;
+            return str;
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res/com.enjack.factorytesttool"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
     >
@@ -20,6 +20,24 @@
 	    android:layout_below="@id/id_dbg_btn"
 	    android:text="off"
 	    />
+
+	<com.enjack.diyviews.CircleColorButtonView
+		android:id="@+id/id_dbg_ccbv"
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        custom:bkColor="#ff990000"
+        custom:bkColorPressed="#ff000099"
+        custom:radius="@dimen/wdiv25"
+        custom:frameColor="#ff00ff00"
+        custom:frameWidth="6px"
+        custom:text="Circle"
+        custom:textSize="12sp"
+        custom:textSuggestSize="true"
+        custom:textColor="#ffeeffee"
+        custom:textColorPressed="#84480d98"
+        android:layout_below="@id/id_dbg_btn_1"
+        android:layout_centerHorizontal="true"
+		/>
 	
 	
 </RelativeLayout>

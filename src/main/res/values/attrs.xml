@@ -33,6 +33,9 @@
 	    <attr name="bkPressed" format="reference|color" />
 	    <!-- Disable状态的背景 -->
 	    <attr name="bkInvalid" format="reference|color" />
+
+		<attr name="bkColor" format="color" />
+        <attr name="bkColorPressed" format="color" />
 	    
 	    <attr name="radius" format="dimension" />
 	    <attr name="frameColor" format="color" />

@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -97,10 +98,16 @@ public class CircleColorButtonView extends View{
                 case R.styleable.DiyViews_textSize:
                     mTextSize = array.getDimensionPixelSize(index, 35);
                     break;
+                case R.styleable.DiyViews_textColor:
+                    mColorText = array.getColor(index, mColorText);
+                    break;
                 case R.styleable.DiyViews_textColorPressed:
                     mColorTextPressed = array.getColor(index, mColorTextPressed);
                 case R.styleable.DiyViews_bkColor:
                     mColorBackground = array.getColor(index, mColorBackground);
+                    break;
+                case R.styleable.DiyViews_bkColorPressed:
+                    mColorBackgroundPressed = array.getColor(index, mColorBackgroundPressed);
                     break;
             }
         }
@@ -112,6 +119,7 @@ public class CircleColorButtonView extends View{
     @Override
     protected void onDraw(Canvas canvas){
         mAnalysts.pre();
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.FILTER_BITMAP_FLAG | Paint.ANTI_ALIAS_FLAG));
         //draw background color
         canvas.drawCircle(mRadius, mRadius, mRadius, mPaintBackround);
 
@@ -143,7 +151,7 @@ public class CircleColorButtonView extends View{
     private void initPaint(){
         mPaintBackround = new Paint();
         mPaintBackround.setAntiAlias(true);
-        mPaintBackround.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaintBackround.setStyle(Paint.Style.FILL);
         mPaintBackround.setColor(mColorBackground);
 
         mPaintFrame = new Paint();

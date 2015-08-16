@@ -16,6 +16,8 @@ import xmps.androiddebugtool.factorytest.Rj45PortFragment;
 import xmps.androiddebugtool.factorytest.ScreenTestFragment;
 import xmps.androiddebugtool.factorytest.SdCardFragment;
 import xmps.androiddebugtool.factorytest.SerialTTYS0Fragment;
+import xmps.androiddebugtool.factorytest.SerialTTYS1Fragment;
+import xmps.androiddebugtool.factorytest.SerialTTYS2Fragment;
 import xmps.androiddebugtool.factorytest.SerialTestFragment;
 import xmps.androiddebugtool.factorytest.SinglePointTouchFragment;
 import xmps.androiddebugtool.factorytest.SoundFragment;
@@ -48,9 +50,11 @@ public class TestProcedures {
 
 	/**测试流程顺序*/
 	private String item_table[] = {
-			ITEM_START_PAGE,
+            ITEM_SERIAL_TTYS2,
+            ITEM_SERIAL_TTYS1,
             ITEM_SERIAL_TTYS0,
-			ITEM_SOUND,
+            ITEM_SOUND,
+			ITEM_START_PAGE,
 			ITEM_WIFI,
 			ITEM_RJ45PORT,
 			ITEM_GPS,
@@ -124,6 +128,8 @@ public class TestProcedures {
 		itemClassMap.put(ITEM_WIFI, WifiTestFragment.class);//wifi
 		itemClassMap.put(ITEM_SERIAL, SerialTestFragment.class);//串口
         itemClassMap.put(ITEM_SERIAL_TTYS0, SerialTTYS0Fragment.class);//ttyS0
+		itemClassMap.put(ITEM_SERIAL_TTYS1, SerialTTYS1Fragment.class);//ttyS1
+        itemClassMap.put(ITEM_SERIAL_TTYS2, SerialTTYS2Fragment.class);//ttyS2
 		itemClassMap.put(ITEM_SDCARD, SdCardFragment.class);//sd卡
 		itemClassMap.put(ITEM_USB_STORAGE, UsbStorageFragment.class);//u盘
 		itemClassMap.put(ITEM_BT, BlueToothFragment.class);//蓝牙

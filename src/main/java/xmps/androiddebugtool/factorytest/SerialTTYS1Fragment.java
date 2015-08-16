@@ -29,11 +29,11 @@ import xmps.androiddebugtool.factorytest.chain.BaseTestItemFragment;
 import xmps.androiddebugtool.factorytest.chain.ItemDescription;
 
 /**
- * Created by enjack on 2015/8/14.
+ * Created by enjack on 2015/8/16.
  */
-public class SerialTTYS0Fragment extends BaseTestItemFragment {
+public class SerialTTYS1Fragment extends BaseTestItemFragment {
 
-    private String tag = "<SerialTTYS0Fragment>";
+    private String tag = "<SerialTTYS1Fragment>";
     private View view = null;
     private Spinner spinner = null;
     private Button btnClrReceive = null;
@@ -64,7 +64,7 @@ public class SerialTTYS0Fragment extends BaseTestItemFragment {
                              Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fm_ttys, container, false);
         TextView tv = (TextView)view.findViewById(R.id.title);
-        tv.setText("ttyS0");
+        tv.setText("ttyS1");
         findElements();
         return view;
     }
@@ -246,7 +246,7 @@ public class SerialTTYS0Fragment extends BaseTestItemFragment {
                             Toast.makeText(getActivity(), "invalid baundrate", Toast.LENGTH_SHORT).show();
                             return;
                         }
-                        File file = new File("/dev/ttyS0");
+                        File file = new File("/dev/ttyS1");
                         if(!file.canRead() || !file.canWrite()){
                             Log.e(tag, "tty can't read or write.");
                             Toast.makeText(getActivity(), "tty can't read or write.", Toast.LENGTH_SHORT).show();
@@ -282,7 +282,7 @@ public class SerialTTYS0Fragment extends BaseTestItemFragment {
                         Toast.makeText(getActivity(), "tty already opened.", Toast.LENGTH_SHORT).show();
                     }
                 }
-                    break;
+                break;
                 case R.id.ttys_btn_close:
                     if(port!=null){
                         port.close();
@@ -361,8 +361,8 @@ public class SerialTTYS0Fragment extends BaseTestItemFragment {
     public ItemDescription getItemDescription() {
         ItemDescription item = new ItemDescription();
         item.board = "通用";
-        item.title = "ttyS0";
-        item.desc = "ttyS0收发测试";
+        item.title = "ttyS1";
+        item.desc = "ttyS1收发测试";
         return item;
     }
 }

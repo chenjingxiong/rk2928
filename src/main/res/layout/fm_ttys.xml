@@ -80,6 +80,8 @@
             android:background="@drawable/comm_bk_selector"
             android:text="1000"
             android:gravity="center"
+            android:inputType="number"
+            android:digits="0123456789"
             />
 
         <TextView

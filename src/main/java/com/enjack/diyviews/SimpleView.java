@@ -378,6 +378,8 @@ public class SimpleView extends View {
 			height = rc.height()+mTextPaddingTop+mTextPaddingBottom;
 		}
 
+		mWidth = width;
+		mHeight = height;
 		setMeasuredDimension(width, height);
 		mHasMeasured = true;
 	}

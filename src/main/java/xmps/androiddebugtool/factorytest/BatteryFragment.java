@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.enjack.diyviews.CircleButtonView;
+import com.enjack.diyviews.CircleColorButtonView;
 
 import xmps.androiddebugtool.factorytest.chain.BaseTestItemFragment;
 import xmps.androiddebugtool.factorytest.chain.ItemDescription;
@@ -28,7 +28,7 @@ import xmps.androiddebugtool.factorytest.chain.ItemDescription;
  * */
 public class BatteryFragment extends BaseTestItemFragment {
 	private final String tag = "<BatteryFragment>";
-	private CircleButtonView circleView = null;
+	private CircleColorButtonView circleView = null;
 	private TextView chargeView = null;
 	private BatteryReceiver batteryReceiver = null;
 	private Paint paint = new Paint();
@@ -47,9 +47,10 @@ public class BatteryFragment extends BaseTestItemFragment {
 		
 		TextView tv = (TextView)v.findViewById(R.id.title);
 		tv.setText("电池充电测试");
-		circleView = (CircleButtonView)v.findViewById(R.id.battery_cap);
+		circleView = (CircleColorButtonView)v.findViewById(R.id.battery_cap);
 		chargeView = (TextView)v.findViewById(R.id.battery_charge);
-		circleView.setDrawExtraCallBack(new CircleButtonView.DrawExtraCallBack(){
+		circleView.enableClickedDraw(false);
+		circleView.setDrawExtraCallBack(new CircleColorButtonView.DrawExtraCallBack(){
 
 			@Override
 			public void drawExtra(Canvas canvas) {
@@ -108,8 +109,8 @@ public class BatteryFragment extends BaseTestItemFragment {
 				}
 				else{
 					chargeView.setText(" ");
-					circleView.setBackgroundColor(Color.argb(0xee, 0xdd, 0xdd, 0xff));
-					circleView.setFrame(Color.argb(0xee, 0xdd, 0xdd, 0xff), 10);
+					circleView.setBackgroundColor(Color.argb(0xff, 0x71, 0xfe, 0x59));
+					circleView.setFrame(Color.argb(0xff, 0x71, 0xfe, 0x59), 10);
 				}
 				circleView.setText(String.valueOf(batteryLevel)+"%");
 				circleView.postInvalidate();

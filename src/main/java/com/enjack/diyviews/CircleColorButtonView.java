@@ -43,6 +43,7 @@ public class CircleColorButtonView extends View{
     private final String tag = "<CircleColorButtonView>";
     private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleColorButtonView", 1);
     private DrawExtraCallBack mCallBackDraw = null;
+    private boolean mClickAble = true;
     private int mRadius = -1;
     private int mHeight = 0;
     private int mWidth = 0;
@@ -256,16 +257,20 @@ public class CircleColorButtonView extends View{
     /**Set view's text.Should invalid view.*/
     public void setText(String text){
         mText = text;
+        if(mSuggestTextSize)
+            mTextSize = getSuggestFontSize(mText);
     }
 
     /**Set text color.Should invalid view.*/
     public void setTextColor(int color){
         mColorText = color;
+        mPaintText.setColor(color);
     }
 
     /**Set text size.Should invalid view.*/
     public void setTextSize(int size){
         mTextSize = size;
+        mPaintText.setTextSize(size);
     }
 
     /**If true, the text size is automatically calculated by view.*/
@@ -281,6 +286,7 @@ public class CircleColorButtonView extends View{
     /**Set background color.*/
     public void setBackgroundColor(int color){
         mColorBackground = color;
+        mPaintBackround.setColor(color);
     }
 
     /**Set background color when view pressed.*/
@@ -291,11 +297,21 @@ public class CircleColorButtonView extends View{
     /**Set frame color.*/
     public void setFrameColor(int color){
         mFrameColor = color;
+        mPaintFrame.setColor(color);
     }
 
     /**Set frame width.*/
     public void setFrameWidth(int width){
         mFrameWidth = width;
+        mPaintFrame.setStrokeWidth(width);
+    }
+
+    /**Set frame color and width.*/
+    public void setFrame(int color, int width){
+        mFrameColor = color;
+        mFrameWidth = width;
+        mPaintFrame.setColor(color);
+        mPaintFrame.setStrokeWidth(width);
     }
 
     /**Set extra draw call back.*/
@@ -303,9 +319,16 @@ public class CircleColorButtonView extends View{
         mCallBackDraw = cb;
     }
 
+    /**If false, the pressed colors would not been draw.Default is true.*/
+    public void enableClickedDraw(boolean click){
+        mClickAble = click;
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event){
+        if(!mClickAble)
+            return true;
         if(MotionEvent.ACTION_DOWN == (event.getAction()&MotionEvent.ACTION_MASK)){
             mPaintText.setColor(mColorTextPressed);
             mPaintBackround.setColor(mColorBackgroundPressed);

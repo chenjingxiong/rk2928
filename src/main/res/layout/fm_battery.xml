@@ -10,7 +10,7 @@
     	/>
     
     
-    <com.enjack.diyviews.CircleButtonView
+    <com.enjack.diyviews.CircleColorButtonView
         android:id="@+id/battery_cap"
         android:layout_width="0dip"	
         android:layout_height="0dip"
@@ -20,11 +20,9 @@
         custom:text="0%"	
         custom:textSuggestSize="true"
         custom:textColor="#ff000000"
-        custom:textColorPressed="#ff000000"
-        custom:frameColor="#eeddddff"
+        custom:frameColor="#ff71fe59"
         custom:frameWidth="2px"
-        custom:bkComm="#eeddddff"
-        custom:bkPressed="#eeddddff"
+        custom:bkColor="#ff71fe59"
         />
     
     <TextView

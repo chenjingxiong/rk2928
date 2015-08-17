@@ -100,7 +100,7 @@ public class SimpleView extends View {
 	/**view在disable状态下的文字颜色*/
 	protected int mTextColorInvalid = INVALID_COLOR;
 	/**文字大小*/
-	protected int mTextSize = 0;
+	protected int mTextSize = 35;
 	/**是否采用自动计算出来的建议的字体大小*/
 	protected boolean mSuggestTextSize = false;
 	/**背景drawable*/

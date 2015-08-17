@@ -50,12 +50,14 @@ public class TestProcedures {
 
 	/**测试流程顺序*/
 	private String item_table[] = {
+            ITEM_DEBUG,
+            ITEM_SOUND,
 			ITEM_START_PAGE,
             ITEM_SERIAL_TTYS2,
 			ITEM_SERIAL_TTYS1,
 			ITEM_SERIAL_TTYS0,
 			ITEM_BATTERY,
-			ITEM_SOUND,
+
 			ITEM_WIFI,
 			ITEM_RJ45PORT,
 			ITEM_GPS,
@@ -68,7 +70,7 @@ public class TestProcedures {
 			//ITEM_KEYPAD,
 			ITEM_SINGLE_POINT_TOUCH,
 			ITEM_SCREEN_DISPLAY,
-            ITEM_DEBUG,
+
 	};
 
 

@@ -352,7 +352,7 @@ public class CircleColorButtonView extends View{
             mPaintBackround.setColor(mColorBackground);
             this.invalidate();
         }
-        return true;
+        return super.onTouchEvent(event);
     }
 
     public static interface DrawExtraCallBack{

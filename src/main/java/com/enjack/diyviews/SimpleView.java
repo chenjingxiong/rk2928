@@ -679,7 +679,6 @@ public class SimpleView extends View {
 			mViewState = VIEW_STATE_NORMAL;
 	}
 
-
 	protected void onTouchDown(int x, int y){
 		//logout("onTouchDown("+x+","+y+")");
 		this.mViewState = VIEW_STATE_PRESSED;
@@ -706,10 +705,10 @@ public class SimpleView extends View {
 		logout("onTouchSlide("+x1+","+y1+"-->"+x2+","+y2+")");
 	}
 
-	@Override
-	public void setOnClickListener(OnClickListener listener){
-		mClickListener = listener;
-	}
+//	@Override
+//	public void setOnClickListener(OnClickListener listener){
+//		mClickListener = listener;
+//	}
 
 
 	private long mTouchUpTime = 0;
@@ -754,7 +753,8 @@ public class SimpleView extends View {
 //		else if(MotionEvent.ACTION_CANCEL == (event.getAction()&MotionEvent.ACTION_MASK)){
 //			onTouchUp((int)event.getX(), (int)event.getY());
 //		}
-		return true;
+		//return true;
+		return super.onTouchEvent(event);
 	}
 
 

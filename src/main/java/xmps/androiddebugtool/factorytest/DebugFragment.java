@@ -44,7 +44,7 @@ public class DebugFragment extends Fragment {
 	public void findElements(View v){
 		auto = (Button)v.findViewById(R.id.id_dbg_btn_1);
 		btn = (Button)v.findViewById(R.id.id_dbg_btn);
-        magnet = (MagnetView)v.findViewById(R.id.magnet);
+        //magnet = (MagnetView)v.findViewById(R.id.magnet);
 	}
 	
 	public void setElementsListener(){

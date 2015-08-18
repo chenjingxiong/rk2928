@@ -5,15 +5,121 @@
     android:layout_height="match_parent"
     android:background="#ff121910" >
   
+
+    <LinearLayout
+        android:id="@+id/fm_start_linear1"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/hdiv65"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:id="@+id/fm_start_linear2"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <com.enjack.diyviews.MagnetView
+                android:id="@+id/debug_tools"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                custom:text="调试工具"
+                custom:textColor="#ffeeeeee"
+                custom:textPadding="20dip"
+                custom:textSuggestSize="false"
+                custom:textSize="46sp"
+                custom:bkColor="#ff4688ff"
+                custom:bkColorPressed="#ff9090bb"
+                />
+
+            <com.enjack.diyviews.MagnetView
+                android:id="@+id/stress_test_tools"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dip"
+                android:layout_marginStart="5dp"
+                custom:text="压力  烤机"
+                custom:textColor="#ffeeeeee"
+                custom:textPadding="20dip"
+                custom:textSuggestSize="false"
+                custom:textSize="36sp"
+                custom:bkColor="#ff881176"
+                custom:bkColorPressed="#ff9090bb"
+                />
+        </LinearLayout>
+
+        <com.enjack.diyviews.MagnetView
+            android:id="@+id/all_test_item"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dip"
+            custom:text="所有测试项"
+            custom:textColor="#ffeeeeee"
+            custom:textPadding="20dip"
+            custom:textSuggestSize="false"
+            custom:textSize="60sp"
+            custom:bkColor="#ff8855aa"
+            custom:bkColorPressed="#ff9090bb"
+            />
+
+        <LinearLayout
+            android:id="@+id/fm_start_linear3"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:layout_marginTop="5dip"
+            android:orientation="horizontal"
+            >
+
+            <com.enjack.diyviews.MagnetView
+                android:id="@+id/comm_tools"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                custom:text="常用工具"
+                custom:textColor="#ffeeeeee"
+                custom:textPadding="20dip"
+                custom:textSuggestSize="false"
+                custom:textSize="44sp"
+                custom:bkColor="#ff2283a9"
+                custom:bkColorPressed="#ff9090bb"
+                />
+
+            <com.enjack.diyviews.MagnetView
+                android:id="@+id/about"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dip"
+                android:layout_marginStart="5dp"
+                custom:text="关于"
+                custom:textColor="#ffeeeeee"
+                custom:textPadding="20dip"
+                custom:textSuggestSize="false"
+                custom:textSize="64sp"
+                custom:bkColor="#ff6699b9"
+                custom:bkColorPressed="#ff9090bb"
+                />
+        </LinearLayout>
+	</LinearLayout>
+
     <RelativeLayout
         android:id="@+id/layout_bottom"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/hdiv30"
+        android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/fm_start_linear1"
         android:background="#ff586398"
         >
-        
-        <com.enjack.diyviews.CircleButtonView
+
+        <com.enjack.diyviews.CircleColorButtonView
             android:id="@+id/start_factory_test"
             android:layout_width="0dip"
             android:layout_height="0dip"
@@ -21,107 +127,14 @@
             custom:radius="@dimen/hdiv10"
             custom:text="Start"
             custom:textSuggestSize="true"
-		    custom:textColor="#ffeeeeee"
-		    custom:textColorPressed="#ffffffff"
-		    custom:textPadding="20dip"
-		    custom:frameColor="#ff000000"
-		    custom:frameWidth="2px"
-		    custom:bkComm="#ff8855aa"
-		    custom:bkPressed="#ff9966bb"
+            custom:textColor="#ffeeeeee"
+            custom:textColorPressed="#ffffffff"
+            custom:textPadding="20dip"
+            custom:frameColor="#ffddddee"
+            custom:frameWidth="2px"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff000099"
             />
-        
+
     </RelativeLayout>
-    
-    
-    <com.enjack.diyviews.TouchScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_alignParentTop="true"
-            android:layout_above="@id/layout_bottom"
-            android:layout_marginBottom="5dip"
-            android:background="#ff121910"
-            >
-            <RelativeLayout
-	        	android:layout_width="fill_parent"
-	        	android:layout_height="fill_parent"
-	        	android:paddingLeft="5dip"
-	        	android:paddingRight="5dip"
-	        	android:background="#ff121910"
-	        	>
-	        	
-                <com.enjack.diyviews.SimpleView
-		            android:id="@+id/debug_tools"
-		            android:layout_width="@dimen/wdiv60"
-		            android:layout_height="@dimen/hdiv25"
-		            android:layout_marginRight="5dip"
-		            custom:text="调试工具"
-		            custom:textColor="#ffeeeeee"
-		            custom:textPadding="20dip"
-		            custom:textSuggestSize="true"
-		            custom:bkComm="#ff4688ff"
-		            custom:bkPressed="@drawable/comm_bk_press_shape"
-           			 />
-                
-                <com.enjack.diyviews.SimpleView
-		            android:id="@+id/stress_test_tools"
-		            android:layout_width="@dimen/wdiv60"
-		            android:layout_height="@dimen/hdiv25"
-		            android:layout_toRightOf="@id/debug_tools"
-		            custom:text="压力  烤机"
-		            custom:textColor="#ffeeeeee"
-		            custom:textPadding="20dip"
-		            custom:textSuggestSize="true"
-		            custom:bkComm="#ff881176"
-		            custom:bkPressed="@drawable/comm_bk_press_shape"
-           			 />
-                
-                <com.enjack.diyviews.SimpleView
-		            android:id="@+id/all_test_item"
-		            android:layout_width="fill_parent"
-		            android:layout_height="@dimen/hdiv20"
-		            android:layout_below="@id/debug_tools"
-		            android:layout_marginTop="5dip"
-		            custom:text="所有测试项"
-		            custom:textColor="#ffeeeeee"
-		            custom:textPadding="20dip"
-		            custom:textSuggestSize="true"
-		            custom:bkComm="#ff8855aa"
-		            custom:bkPressed="@drawable/comm_bk_press_shape"
-           			 />
-                
-                <com.enjack.diyviews.SimpleView
-		            android:id="@+id/comm_tools"
-		            android:layout_width="@dimen/wdiv45"
-		            android:layout_height="@dimen/hdiv25"
-		            android:layout_below="@id/all_test_item"
-		            android:layout_marginTop="5dip"
-		            custom:text="常用工具"
-		            custom:textColor="#ffeeeeee"
-		            custom:textPadding="20dip"
-		            custom:textSuggestSize="true"
-		            custom:bkComm="#ff2283a9"
-		            custom:bkPressed="@drawable/comm_bk_press_shape"
-           			 />
-                
-                <com.enjack.diyviews.SimpleView
-		            android:id="@+id/about"
-		            android:layout_width="fill_parent"
-		            android:layout_height="@dimen/hdiv25"
-		            android:layout_below="@id/all_test_item"
-		            android:layout_toRightOf="@id/comm_tools"
-		            android:layout_marginLeft="5dip"
-		            android:layout_marginTop="5dip"
-		            custom:text="关于"
-		            custom:textColor="#ffeeeeee"
-		            custom:textPadding="20dip"
-		            custom:textSuggestSize="true"
-		            custom:bkComm="#ff6699b9"
-		            custom:bkPressed="@drawable/comm_bk_press_shape"
-           			 />
-                
-	        </RelativeLayout>
-            
-        </com.enjack.diyviews.TouchScrollView>
-        
-         
 </RelativeLayout>

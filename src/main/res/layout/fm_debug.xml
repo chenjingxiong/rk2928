@@ -27,7 +27,7 @@
         android:layout_height="0dip"
         custom:bkColor="#ff990000"
         custom:bkColorPressed="#ff000099"
-        custom:radius="@dimen/wdiv10"
+        custom:radius="@dimen/wdiv30"
         custom:frameColor="#ff00ff00"
         custom:frameWidth="6px"
         custom:text="Circle"
@@ -42,8 +42,8 @@
 
     <com.enjack.diyviews.MagnetView
         android:id="@+id/magnet"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         custom:text="ABC"
         custom:textSize="52sp"
         custom:textSuggestSize="true"

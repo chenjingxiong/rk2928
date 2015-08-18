@@ -17,8 +17,8 @@ import xmps.androiddebugtool.factorytest.R;
  * Created by enjack on 2015/8/17.
  */
 public class MagnetView extends SimpleView{
-    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("MagnetView", 1);
-    private DrawEfficiencyAnalysts mAnalystsMeasure = new DrawEfficiencyAnalysts("MagnetView-onMeasure", 1);
+    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("MagnetView", 2);
+    private DrawEfficiencyAnalysts mAnalystsMeasure = new DrawEfficiencyAnalysts("MagnetView-onMeasure", 2);
     private final String tag = "<MagnetView>";
     protected int mColorBackground = Color.argb(255, 90, 90, 200);
     protected int mColorBackgroundPressed = mColorBackground;
@@ -189,7 +189,7 @@ public class MagnetView extends SimpleView{
             mPaintBackground.setColor(mColorBackground);
             this.invalidate();
         }
-        return true;
+        return super.onTouchEvent(event);
     }
 
     /**

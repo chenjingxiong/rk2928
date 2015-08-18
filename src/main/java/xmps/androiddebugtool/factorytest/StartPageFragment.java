@@ -9,15 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.enjack.diyviews.CircleButtonView;
-import com.enjack.diyviews.SimpleView;
+import com.enjack.diyviews.CircleColorButtonView;
+import com.enjack.diyviews.MagnetView;
 
 import xmps.androiddebugtool.factorytest.chain.FragmentChainManager;
 import xmps.androiddebugtool.stresstest.StressTestActivity;
 import xmps.androiddebugtool.tools.CommToolsActivity;
 
 public class StartPageFragment extends Fragment implements FragmentChainManager.FragmentChainChangeListener {
-	
+
+	private String tag = "<StartPageFragment>";
 	private MainAcFmManager mafmm = null;
 	
 	@Override  
@@ -25,14 +26,18 @@ public class StartPageFragment extends Fragment implements FragmentChainManager.
             Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fm_startpage, container, false);
 		//
-		CircleButtonView start = (CircleButtonView)v.findViewById(R.id.start_factory_test);
+		CircleColorButtonView start = (CircleColorButtonView)v.findViewById(R.id.start_factory_test);
 		start.setOnClickListener(new ButtonListener());
-		SimpleView allTestItem = (SimpleView)v.findViewById(R.id.all_test_item);
+		MagnetView allTestItem = (MagnetView)v.findViewById(R.id.all_test_item);
 		allTestItem.setOnClickListener(new ButtonListener());
-		SimpleView stressTools = (SimpleView)v.findViewById(R.id.stress_test_tools);
+		MagnetView stressTools = (MagnetView)v.findViewById(R.id.stress_test_tools);
 		stressTools.setOnClickListener(new ButtonListener());
-        SimpleView commTools = (SimpleView)v.findViewById(R.id.comm_tools);
+        MagnetView commTools = (MagnetView)v.findViewById(R.id.comm_tools);
         commTools.setOnClickListener(new ButtonListener());
+		MagnetView debugtools = (MagnetView)v.findViewById(R.id.debug_tools);
+		debugtools.setOnClickListener(new ButtonListener());
+        MagnetView about = (MagnetView)v.findViewById(R.id.about);
+        about.setOnClickListener(new ButtonListener());
 		//
 		MainActivity activity = (MainActivity)this.getActivity();
 		activity.requestFullScreen(true);
@@ -90,7 +95,14 @@ public class StartPageFragment extends Fragment implements FragmentChainManager.
                 startActivity(intent);
                 break;
             }
+            case R.id.about:{
+                break;
+            }
+            case R.id.debug_tools:{
+                break;
+            }
 			case R.id.start_factory_test:
+				Log.i(tag, "start factory test.");
 				mafmm.next();
 				//MainActivity activity = (MainActivity)getActivity();
 				//activity.requestFullScreen(false);

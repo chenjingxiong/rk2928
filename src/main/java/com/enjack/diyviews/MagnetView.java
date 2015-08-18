@@ -155,12 +155,18 @@ public class MagnetView extends SimpleView{
         int permittedWidth = mWidth - mTextPaddingLeft - mTextPaddingRight;
         int permittedHeight = (mHeight - mTextPaddingTop - mTextPaddingBottom)/2;
         Rect rc = new Rect();
-        for(int i=0; i<1000; i++){
+        for(int i=10; i<1000; i+=10){
             mPaintText.setTextSize(i);
             mPaintText.getTextBounds(text, 0, text.length(), rc);
             if(rc.width()>=permittedWidth || rc.height()>=permittedHeight){
-                size = i-1;
-                break;
+                for(int j=i; j>=i-10; j--){
+                    mPaintText.setTextSize(j);
+                    mPaintText.getTextBounds(text, 0, text.length(), rc);
+                    if(rc.width()<=permittedWidth && rc.height()<=permittedHeight)
+                        return j;
+                    else if(j==i-10 && ((rc.width()>=permittedWidth || rc.height()>=permittedHeight)))
+                        return 0;
+                }
             }
         }
 

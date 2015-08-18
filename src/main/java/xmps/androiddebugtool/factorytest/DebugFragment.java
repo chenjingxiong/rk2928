@@ -69,8 +69,9 @@ public class DebugFragment extends Fragment {
                 Log.i(tag, "text:"+magnet.getText());
 				break;
 			case R.id.id_dbg_btn:	//on
-                magnet.setTextSizeSuggested(true);
-                magnet.postInvalidate();
+                //magnet.setTextSizeSuggested(true);
+                //magnet.postInvalidate();
+                Log.i(tag, magnet.toString());
 				break;
 			}
 		}

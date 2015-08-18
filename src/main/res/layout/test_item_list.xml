@@ -7,7 +7,7 @@
         android:id="@+id/test_item_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ff000000"
+        android:textColor="#ffdddddd"
         android:textSize="30sp"
         />
     <TextView
@@ -15,7 +15,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/test_item_title"
-        android:textColor="#ff555555"
+        android:textColor="#ffffceff"
         android:textSize="25sp"
         />
     
@@ -24,7 +24,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/test_item_board"
-        android:textColor="#ffbbbbbb"
+        android:textColor="#ffbb94bb"
         android:textSize="20sp"
         />
 

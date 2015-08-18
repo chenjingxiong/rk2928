@@ -103,7 +103,7 @@ public class MagnetView extends SimpleView{
             width = widthSize;
         } else
         {
-            int textWidth = getExactlyTextWidth(mPaint, mText);
+            int textWidth = getExactlyTextWidth(mPaintText, mText);
             width = textWidth+mTextPaddingLeft+mTextPaddingRight;
         }
 
@@ -184,5 +184,36 @@ public class MagnetView extends SimpleView{
             this.invalidate();
         }
         return true;
+    }
+
+    /**
+     * Set text color.
+     * @param commColor common status color
+     * @param pressedColor color of text when pressed
+     * */
+    public void setTextColor(int commColor, int pressedColor){
+        mTextColor = commColor;
+        mTextColorPressed = pressedColor;
+        mPaintText.setColor(mTextColor);
+    }
+
+    @Override
+    public void setTextSize(int size){
+        mTextSize = size;
+        mPaintText.setTextSize(mTextSize);
+    }
+
+    @Override
+    public void setTextSizeSuggested(boolean b){
+        super.setTextSizeSuggested(b);
+        if(b)
+            mTextSize = getSuggestFontSize(mText);
+    }
+
+    /**Set background color, common status and pressed.*/
+    public void setBackgroundColor(int commColor, int pressedColor){
+        mColorBackground = commColor;
+        mColorBackgroundPressed = pressedColor;
+        mPaintBackground.setColor(mColorBackground);
     }
 }

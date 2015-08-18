@@ -2,13 +2,15 @@ package xmps.androiddebugtool.factorytest;
 
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.android.enjack.util.SwitchUtil;
+import com.enjack.diyviews.MagnetView;
 
 
 /**
@@ -19,6 +21,7 @@ public class DebugFragment extends Fragment {
 	private final String tag = "<DebugFragment>";
 	private Button btn = null;
 	private Button auto;
+	private MagnetView magnet = null;
 	
 	@Override  
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +44,7 @@ public class DebugFragment extends Fragment {
 	public void findElements(View v){
 		auto = (Button)v.findViewById(R.id.id_dbg_btn_1);
 		btn = (Button)v.findViewById(R.id.id_dbg_btn);
+        magnet = (MagnetView)v.findViewById(R.id.magnet);
 	}
 	
 	public void setElementsListener(){
@@ -57,11 +61,16 @@ public class DebugFragment extends Fragment {
 			// TODO Auto-generated method stub
 			switch(v.getId()){
 			case R.id.id_dbg_btn_1://off
-				//SwitchUtil.mute(getActivity(), 3);
-				SwitchUtil.lockScreen(getActivity());
+                magnet.setText("enjack");
+                magnet.setTextSize(24);
+                magnet.setTextColor(Color.BLUE, Color.YELLOW);
+                magnet.setBackgroundColor(Color.GRAY, Color.BLUE);
+                magnet.postInvalidate();
+                Log.i(tag, "text:"+magnet.getText());
 				break;
 			case R.id.id_dbg_btn:	//on
-				SwitchUtil.mute(getActivity(), 2);
+                magnet.setTextSizeSuggested(true);
+                magnet.postInvalidate();
 				break;
 			}
 		}

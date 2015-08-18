@@ -42,10 +42,11 @@
 
     <com.enjack.diyviews.MagnetView
         android:id="@+id/magnet"
-        android:layout_width="100dip"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         custom:text="ABC"
-        custom:textSuggestSize="true"
+        custom:textSize="52sp"
+        custom:textSuggestSize="false"
         custom:textPadding="20dip"
         custom:bkColor="#ff990000"
         custom:bkColorPressed="#ff000099"

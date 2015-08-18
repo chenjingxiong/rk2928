@@ -1,9 +1,5 @@
 package xmps.androiddebugtool.factorytest.testmodules;
 
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -14,6 +10,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GraffitiBoardView extends View {
 
@@ -94,7 +94,7 @@ public class GraffitiBoardView extends View {
 	private void initPaint(){
 		paint.setAntiAlias(true);
 		paint.setColor(lineColor);
-		paint.setStrokeWidth(10);
+		paint.setStrokeWidth(2);
 		paint.setStyle(Paint.Style.STROKE);
 	}
 

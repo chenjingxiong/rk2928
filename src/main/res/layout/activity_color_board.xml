@@ -1,9 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/colorboard_bk"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#453489">
+    android:background="#ff453489">
+
+    <!--第一行-->
+    <RelativeLayout
+        android:id="@+id/colorboard_relative1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        >
+
+        <EditText
+            android:id="@+id/colorboard_a_et"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:background="#00000000"
+            android:text="255"
+            android:textColor="#ff5588bb"
+            android:inputType="number"
+            android:digits="0123456789"
+            />
+
+        <!-- a- -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_a_dec"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toLeftOf="@id/colorboard_a_et"
+            android:layout_toStartOf="@id/colorboard_a_et"
+            android:layout_marginRight="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="A-"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+
+        <!-- a+ -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_a_inc"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toRightOf="@id/colorboard_a_et"
+            android:layout_toEndOf="@id/colorboard_a_et"
+            android:layout_marginLeft="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="A+"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+    </RelativeLayout>
+
+    <!--第二行-->
+    <RelativeLayout
+        android:id="@+id/colorboard_relative2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorboard_relative1"
+        android:layout_marginTop="15dp"
+        >
+
+        <EditText
+            android:id="@+id/colorboard_r_et"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:background="#00000000"
+            android:text="69"
+            android:textColor="#ff5588bb"
+            android:inputType="number"
+            android:digits="0123456789"
+            />
+
+        <!-- r- -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_r_dec"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toLeftOf="@id/colorboard_r_et"
+            android:layout_toStartOf="@id/colorboard_r_et"
+            android:layout_marginRight="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="R-"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+
+        <!-- r+ -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_r_inc"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toRightOf="@id/colorboard_r_et"
+            android:layout_toEndOf="@id/colorboard_r_et"
+            android:layout_marginLeft="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="R+"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+    </RelativeLayout>
+
+    <!--第三行-->
+    <RelativeLayout
+        android:id="@+id/colorboard_relative3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorboard_relative2"
+        android:layout_marginTop="15dp"
+        >
+
+        <EditText
+            android:id="@+id/colorboard_g_et"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:background="#00000000"
+            android:text="52"
+            android:textColor="#ff5588bb"
+            android:inputType="number"
+            android:digits="0123456789"
+            />
+
+        <!-- g- -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_g_dec"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toLeftOf="@id/colorboard_g_et"
+            android:layout_toStartOf="@id/colorboard_g_et"
+            android:layout_marginRight="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="G-"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+
+        <!-- g+ -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_g_inc"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toRightOf="@id/colorboard_g_et"
+            android:layout_toEndOf="@id/colorboard_g_et"
+            android:layout_marginLeft="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="G+"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+    </RelativeLayout>
+
+    <!--第四行-->
+    <RelativeLayout
+        android:id="@+id/colorboard_relative4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorboard_relative3"
+        android:layout_marginTop="15dp"
+        >
+
+        <EditText
+            android:id="@+id/colorboard_b_et"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:background="#00000000"
+            android:text="137"
+            android:textColor="#ff5588bb"
+            android:inputType="number"
+            android:digits="0123456789"
+            />
+
+        <!-- B- -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_b_dec"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toLeftOf="@id/colorboard_b_et"
+            android:layout_toStartOf="@id/colorboard_b_et"
+            android:layout_marginRight="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="B-"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+
+        <!-- B+ -->
+        <com.enjack.diyviews.CircleColorButtonView
+            android:id="@+id/colorboard_btn_b_inc"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_toRightOf="@id/colorboard_b_et"
+            android:layout_toEndOf="@id/colorboard_b_et"
+            android:layout_marginLeft="25dp"
+            custom:radius="30dip"
+            custom:bkColor="#00000000"
+            custom:bkColorPressed="#ff5588bb"
+            custom:text="B+"
+            custom:textSuggestSize="true"
+            custom:textColor="#ff5588bb"
+            custom:textColorPressed="#ffffffff"
+            custom:frameWidth="2px"
+            custom:frameColor="#ff5588bb"
+            />
+    </RelativeLayout>
+
 
     <com.enjack.diyviews.CircleColorButtonView
         android:id="@+id/colorboard_btn_full_screen"

@@ -11,7 +11,7 @@
     	layout="@layout/title"
     />
     
-    <com.enjack.diyviews.CircleButtonView
+    <com.enjack.diyviews.CircleColorButtonView
         android:id="@+id/wifi_refresh"
         android:layout_width="0dip"	
         android:layout_height="0dip"
@@ -21,12 +21,12 @@
         custom:radius="@dimen/hdiv7"
         custom:text="刷新"	
         custom:textSuggestSize="true"
-        custom:textColor="#ff000000"
+        custom:textColor="#ffd972fd"
         custom:textColorPressed="#ffffffff"
-        custom:frameColor="#dd007700"
+        custom:frameColor="#ffd972fd"
         custom:frameWidth="2px"
-        custom:bkComm="#eedddddd"
-        custom:bkPressed="#ff9966bb"
+        custom:bkColor="#00000000"
+        custom:bkColorPressed="#ffd972fd"
         />
     
     <ListView

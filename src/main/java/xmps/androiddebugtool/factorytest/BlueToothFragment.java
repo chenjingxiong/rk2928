@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.enjack.diyviews.CircleButtonView;
+import com.enjack.diyviews.CircleColorButtonView;
 
 import xmps.androiddebugtool.factorytest.chain.BaseTestItemFragment;
 import xmps.androiddebugtool.factorytest.chain.ItemDescription;
@@ -17,7 +17,7 @@ import xmps.androiddebugtool.factorytest.testmodules.BlueToothInspector;
 
 public class BlueToothFragment extends BaseTestItemFragment implements BlueToothInspector.BlueToothTestListener{
 	
-	private CircleButtonView btnStart = null;
+	private CircleColorButtonView btnStart = null;
 	private TextView tvMessage = null;
 	private BlueToothInspector inspector = new BlueToothInspector();
 	private UIHandler handler = new UIHandler();
@@ -42,7 +42,7 @@ public class BlueToothFragment extends BaseTestItemFragment implements BlueTooth
         TextView title = (TextView)v.findViewById(R.id.title);
 		title.setText("蓝牙测试");
 		inspector.setListener(this);
-		btnStart = (CircleButtonView)v.findViewById(R.id.bluetooth_start);
+		btnStart = (CircleColorButtonView)v.findViewById(R.id.bluetooth_start);
 		tvMessage = (TextView)v.findViewById(R.id.bluetooth_message);
 		btnStart.setOnClickListener(new View.OnClickListener() {
 			

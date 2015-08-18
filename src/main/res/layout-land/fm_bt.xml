@@ -23,7 +23,7 @@
 	
 	
 	<!-- 开始按钮-->
-	<com.enjack.diyviews.CircleButtonView
+	<com.enjack.diyviews.CircleColorButtonView
         android:id="@+id/bluetooth_start"
         android:layout_width="0dip"	
         android:layout_height="0dip"
@@ -33,12 +33,12 @@
         custom:radius="@dimen/hdiv12"
         custom:text="开始"	
         custom:textSuggestSize="true"
-        custom:textColor="#ff000000"
+        custom:textColor="#ffd972fd"
         custom:textColorPressed="#ffffffff"
-        custom:frameColor="#dd007777"
+        custom:frameColor="#ffd972fd"
         custom:frameWidth="2px"
-        custom:bkComm="#eedddddd"
-        custom:bkPressed="#ff9966bb"
+        custom:bkColor="#00000000"
+        custom:bkColorPressed="#ffd972fd"
         />
 
 </RelativeLayout>

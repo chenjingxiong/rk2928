@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.enjack.diyviews.CircleButtonView;
+import com.enjack.diyviews.CircleColorButtonView;
 import com.enjack.diyviews.SwitchView;
 import com.enjack.diyviews.ValueTextView;
 import xmps.androiddebugtool.factorytest.chain.BaseTestItemFragment;
@@ -31,7 +31,7 @@ public class SdCardFragment extends BaseTestItemFragment implements SdCardChecke
 	private SwitchView svSwitch = null;
 	private TextView tvTargetPath = null;
 	private TextView tvInfo = null;
-	private CircleButtonView btnStart = null;
+	private CircleColorButtonView btnStart = null;
 	private UIHandler handler = new UIHandler();
 	
 	@Override  
@@ -49,7 +49,7 @@ public class SdCardFragment extends BaseTestItemFragment implements SdCardChecke
 		tvResult = (ValueTextView)v.findViewById(R.id.sdcard_tvResult);
 		tvTargetPath = (TextView)v.findViewById(R.id.sdcard_tvTargetPath);
 		tvInfo = (TextView)v.findViewById(R.id.sdcard_tvInfo);
-		btnStart = (CircleButtonView)v.findViewById(R.id.sdcard_start);
+		btnStart = (CircleColorButtonView)v.findViewById(R.id.sdcard_start);
 		svSwitch = (SwitchView)v.findViewById(R.id.sdcard_switch);
 		btnStart.setOnClickListener(new View.OnClickListener() {
 			

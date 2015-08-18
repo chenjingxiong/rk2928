@@ -31,7 +31,7 @@
                 custom:textColor="#ffeeeeee"
                 custom:textPadding="20dip"
                 custom:textSuggestSize="false"
-                custom:textSize="46sp"
+                custom:textSize="40sp"
                 custom:bkColor="#ff4688ff"
                 custom:bkColorPressed="#ff9090bb"
                 />
@@ -47,7 +47,7 @@
                 custom:textColor="#ffeeeeee"
                 custom:textPadding="20dip"
                 custom:textSuggestSize="false"
-                custom:textSize="36sp"
+                custom:textSize="30sp"
                 custom:bkColor="#ff881176"
                 custom:bkColorPressed="#ff9090bb"
                 />
@@ -86,7 +86,7 @@
                 custom:textColor="#ffeeeeee"
                 custom:textPadding="20dip"
                 custom:textSuggestSize="false"
-                custom:textSize="44sp"
+                custom:textSize="40sp"
                 custom:bkColor="#ff2283a9"
                 custom:bkColorPressed="#ff9090bb"
                 />

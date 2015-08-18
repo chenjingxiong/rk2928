@@ -31,7 +31,7 @@ import android.widget.Toast;
 import com.android.enjack.util.SwitchUtil;
 import com.android.enjack.util.WifiAccess;
 import com.android.enjack.util.WifiAutoConnectManager;
-import com.enjack.diyviews.CircleButtonView;
+import com.enjack.diyviews.CircleColorButtonView;
 
 import java.util.List;
 
@@ -66,7 +66,7 @@ public class WifiTestFragment extends BaseTestItemFragment implements OnItemClic
 		//mAdapter.refreshData(mWifiScanResultList);
 		//mWifiListView.setAdapter(mAdapter);
 		mWifiListView.setOnItemClickListener(this);
-		CircleButtonView btn = (CircleButtonView)v.findViewById(R.id.wifi_refresh);
+		CircleColorButtonView btn = (CircleColorButtonView)v.findViewById(R.id.wifi_refresh);
 		btn.setOnClickListener(new View.OnClickListener(){
 
 			@Override

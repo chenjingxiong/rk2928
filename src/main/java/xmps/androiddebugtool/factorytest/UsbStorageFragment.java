@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.enjack.diyviews.CircleButtonView;
+import com.enjack.diyviews.CircleColorButtonView;
 import com.enjack.diyviews.ValueTextView;
 
 import xmps.androiddebugtool.factorytest.chain.BaseTestItemFragment;
@@ -30,7 +30,7 @@ public class UsbStorageFragment extends BaseTestItemFragment implements UsbStora
 	private ValueTextView tvReadSpeed = null;
 	private ValueTextView tvResult = null;
 	private TextView tvInfo = null;
-	private CircleButtonView btnStart = null;
+	private CircleColorButtonView btnStart = null;
 	private UIHandler handler = new UIHandler();
 	
 	@Override
@@ -58,7 +58,7 @@ public class UsbStorageFragment extends BaseTestItemFragment implements UsbStora
 		tvReadSpeed = (ValueTextView)v.findViewById(R.id.usbstorage_readspeed);
 		tvResult = (ValueTextView)v.findViewById(R.id.usbstorage_tvResult);
 		tvInfo = (TextView)v.findViewById(R.id.usbstorage_tvInfo);
-		btnStart = (CircleButtonView)v.findViewById(R.id.usbstorage_start);
+		btnStart = (CircleColorButtonView)v.findViewById(R.id.usbstorage_start);
 		btnStart.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

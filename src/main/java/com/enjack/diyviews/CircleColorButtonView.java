@@ -41,7 +41,7 @@ public class CircleColorButtonView extends View{
     private final int INVALID_COLOR = Integer.MAX_VALUE;
     private final int MAX_FONT_SIZE = 1000;
     private final String tag = "<CircleColorButtonView>";
-    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleColorButtonView", 1);
+    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleColorButtonView", 2);
     private DrawExtraCallBack mCallBackDraw = null;
     private boolean mClickAble = true;
     private int mRadius = -1;
@@ -186,7 +186,7 @@ public class CircleColorButtonView extends View{
         int size = 0;
         Circle circle = new Circle(0, 0, 0);
         Rect rc = new Rect();
-        for(int i=0; i<MAX_FONT_SIZE; i++){
+        for(int i=10; i<MAX_FONT_SIZE; i+=10){
             mPaintText.setTextSize(i);
             rc = getTextDisplayRect(mPaintText, text);
             int centerX = (int)((rc.left+rc.right)/2);
@@ -197,21 +197,34 @@ public class CircleColorButtonView extends View{
             rc.right += offsetX;
             rc.top += offsetY;
             rc.bottom += offsetY;
-//            Circle circle = new Circle((int)(mRadius*suggestScale),
-//                    (int)(mRadius*suggestScale),
-//                    (int)(mRadius*suggestScale));
             circle.setPoint((int)(mRadius*suggestScale),
                     (int)(mRadius*suggestScale),
                     (int)(mRadius*suggestScale));
             if(!circle.contains(rc)){
-                size = i-1;
-                break;
+                for(int j=i-1; j>=i-10; j--){
+                    mPaintText.setTextSize(j);
+                    rc = getTextDisplayRect(mPaintText, text);
+                    centerX = (int)((rc.left+rc.right)/2);
+                    centerY = (int)((rc.top+rc.bottom)/2);
+                    offsetX = mRadius - centerX;
+                    offsetY = mRadius - centerY;
+                    rc.left += offsetX;
+                    rc.right += offsetX;
+                    rc.top += offsetY;
+                    rc.bottom += offsetY;
+                    circle.setPoint((int)(mRadius*suggestScale),
+                            (int)(mRadius*suggestScale),
+                            (int)(mRadius*suggestScale));
+                    if(circle.contains(rc))
+                        return j;
+                    else if(!circle.contains(rc) && j==i-10)
+                        return 0;
+                }
             }
         }
 
         if(size>MAX_FONT_SIZE)
             size = 0;
-
         return size;
     }
 

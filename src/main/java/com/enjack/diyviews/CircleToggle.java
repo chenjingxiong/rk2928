@@ -101,7 +101,6 @@ public class CircleToggle extends CircleColorButtonView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
-        mRadius = 100;
         mWidth = mHeight = mRadius*2;
         setMeasuredDimension(mWidth, mHeight);
     }

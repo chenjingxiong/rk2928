@@ -251,7 +251,7 @@
     </RelativeLayout>
 
 
-    <com.enjack.diyviews.CircleColorButtonView
+    <com.enjack.diyviews.CircleToggle
         android:id="@+id/colorboard_btn_full_screen"
         android:layout_width="0dip"
         android:layout_height="0dip"
@@ -264,6 +264,7 @@
         custom:bkColor="#00000000"
         custom:bkColorPressed="#ff5588bb"
         custom:text="全屏"
+        custom:textPressed="全屏"
         custom:textSuggestSize="true"
         custom:textColor="#ff5588bb"
         custom:textColorPressed="#ffffffff"

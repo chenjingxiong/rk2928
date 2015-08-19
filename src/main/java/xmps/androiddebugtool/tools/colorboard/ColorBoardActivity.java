@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.enjack.diyviews.CircleColorButtonView;
+import com.enjack.diyviews.CircleToggle;
 
 import xmps.androiddebugtool.factorytest.R;
 
@@ -21,7 +22,7 @@ import xmps.androiddebugtool.factorytest.R;
 public class ColorBoardActivity extends ActionBarActivity {
 
     private RelativeLayout layout = null;
-    private CircleColorButtonView full = null;
+    private CircleToggle full = null;
     private EditText etA = null;
     private EditText etR = null;
     private EditText etG = null;
@@ -67,8 +68,18 @@ public class ColorBoardActivity extends ActionBarActivity {
     private void findElements(){
         BtnListener listener = new BtnListener();
         layout = (RelativeLayout)findViewById(R.id.colorboard_bk);
-        full = (CircleColorButtonView)findViewById(R.id.colorboard_btn_full_screen);
-        full.setOnClickListener(listener);
+        full = (CircleToggle)findViewById(R.id.colorboard_btn_full_screen);
+        //full.setOnClickListener(listener);
+        full.setWatcher(new CircleToggle.ToggleStateWatcher() {
+            @Override
+            public void onSelectChanged(boolean sel) {
+                ActionBar bar = getSupportActionBar();
+                if(sel && bar.isShowing())
+                    bar.hide();
+                else if(!sel && !bar.isShowing())
+                    bar.show();
+            }
+        });
         etA = (EditText)findViewById(R.id.colorboard_a_et);
         etR = (EditText)findViewById(R.id.colorboard_r_et);
         etG = (EditText)findViewById(R.id.colorboard_g_et);
@@ -181,14 +192,6 @@ public class ColorBoardActivity extends ActionBarActivity {
         @Override
         public void onClick(View v) {
             switch(v.getId()){
-                case R.id.colorboard_btn_full_screen:{
-                    ActionBar bar = getSupportActionBar();
-                    if(bar.isShowing())
-                        bar.hide();
-                    else
-                        bar.show();
-                    break;
-                }
                 case R.id.colorboard_btn_a_inc:
                     clicked(0, true);
                     break;

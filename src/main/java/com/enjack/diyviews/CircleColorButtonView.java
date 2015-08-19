@@ -38,27 +38,27 @@ import xmps.androiddebugtool.factorytest.R;
  */
 public class CircleColorButtonView extends View{
 
-    private final int INVALID_COLOR = Integer.MAX_VALUE;
-    private final int MAX_FONT_SIZE = 1000;
+    protected final int INVALID_COLOR = Integer.MAX_VALUE;
+    protected final int MAX_FONT_SIZE = 1000;
     private final String tag = "<CircleColorButtonView>";
     private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleColorButtonView", 2);
-    private DrawExtraCallBack mCallBackDraw = null;
+    protected DrawExtraCallBack mCallBackDraw = null;
     private boolean mClickAble = true;
-    private int mRadius = -1;
-    private int mHeight = 0;
-    private int mWidth = 0;
-    private boolean mSuggestTextSize = false;
-    private String mText = "";
-    private int mTextSize = 0;
-    private int mFrameColor = INVALID_COLOR;
-    private int mFrameWidth = -1;
-    private int mColorBackground = Color.argb(0, 0, 0, 99);
-    private int mColorBackgroundPressed = Color.argb(0, 0, 0, 0);
-    private int mColorText = Color.argb(255, 0, 0, 0);
-    private int mColorTextPressed = Color.argb(255, 0, 0, 0);
-    private Paint mPaintBackround = null;
-    private Paint mPaintFrame = null;
-    private Paint mPaintText = null;
+    protected int mRadius = -1;
+    protected int mHeight = 0;
+    protected int mWidth = 0;
+    protected boolean mSuggestTextSize = false;
+    protected String mText = "";
+    protected int mTextSize = 0;
+    protected int mFrameColor = INVALID_COLOR;
+    protected int mFrameWidth = -1;
+    protected int mColorBackground = Color.argb(0, 0, 0, 99);
+    protected int mColorBackgroundPressed = Color.argb(0, 0, 0, 0);
+    protected int mColorText = Color.argb(255, 0, 0, 0);
+    protected int mColorTextPressed = Color.argb(255, 0, 0, 0);
+    protected Paint mPaintBackround = null;
+    protected Paint mPaintFrame = null;
+    protected Paint mPaintText = null;
 
     public CircleColorButtonView(Context context) {
         //super(context);
@@ -149,7 +149,7 @@ public class CircleColorButtonView extends View{
         setMeasuredDimension(mWidth, mHeight);
     }
 
-    private void initPaint(){
+    protected void initPaint(){
         mPaintBackround = new Paint();
         mPaintBackround.setAntiAlias(true);
         mPaintBackround.setStyle(Paint.Style.FILL);
@@ -231,7 +231,7 @@ public class CircleColorButtonView extends View{
     /**
      * 获取字符串显示的矩形区域。直接用getTextBounds会得到负数，这里转换成正数。
      * */
-    private Rect getTextDisplayRect(Paint p, String str){
+    protected Rect getTextDisplayRect(Paint p, String str){
         Rect rc = new Rect();
         p.getTextBounds(str, 0, str.length(), rc);
         if(rc.left<0){
@@ -249,7 +249,7 @@ public class CircleColorButtonView extends View{
     /**
      * 精确的计算字符串的显示长度。
      * */
-    private int getExactlyTextWidth(Paint paint, String str) {
+    protected int getExactlyTextWidth(Paint paint, String str) {
         int iRet = 0;
         if (str != null && str.length() > 0) {
             int len = str.length();
@@ -265,6 +265,11 @@ public class CircleColorButtonView extends View{
     /**Get radius of the circle view*/
     public int getRadius(){
         return mRadius;
+    }
+
+    /**Get text of view*/
+    public String getText(){
+        return mText;
     }
 
     /**Set view's text.Should invalid view.*/

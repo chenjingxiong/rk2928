@@ -40,18 +40,24 @@
         android:layout_centerHorizontal="true"
 		/>
 
-    <com.enjack.diyviews.MagnetView
-        android:id="@+id/magnet"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        custom:text="ABC"
-        custom:textSize="52sp"
-        custom:textSuggestSize="true"
-        custom:textPadding="2dip"
-        custom:bkColor="#ff990000"
-        custom:bkColorPressed="#ff000099"
+    <com.enjack.diyviews.CircleToggle
+        android:id="@+id/id_debug_circle_toggle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_below="@id/id_dbg_ccbv"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        custom:radius="100dp"
+        custom:textSuggestSize="true"
+        custom:text="abc"
+        custom:textPressed="123"
+        custom:textColor="#84480d98"
+        custom:textColorPressed="#ffedc649"
+        custom:frameWidth="2px"
+        custom:frameColor="#84480d98"
+        custom:frameColorPressed="#ffedc649"
+        custom:bkColor="#00000000"
+        custom:bkColorPressed="#ffff150e"
          />
 	
 	

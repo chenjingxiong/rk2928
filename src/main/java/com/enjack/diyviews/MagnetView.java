@@ -14,6 +14,19 @@ import android.view.MotionEvent;
 import xmps.androiddebugtool.factorytest.R;
 
 /**
+ * 磁帖
+    android:id="@+id/magnet"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    custom:text="ABC"
+    custom:textSize="52sp"
+    custom:textSuggestSize="true"
+    custom:textPadding="2dip"
+    custom:bkColor="#ff990000"
+    custom:bkColorPressed="#ff000099"
+    android:layout_below="@id/id_dbg_ccbv"
+    android:layout_centerHorizontal="true"
+
  * Created by enjack on 2015/8/17.
  */
 public class MagnetView extends SimpleView{

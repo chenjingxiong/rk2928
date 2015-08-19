@@ -50,6 +50,7 @@ public class TestProcedures {
 
 	/**测试流程顺序*/
 	private String item_table[] = {
+			ITEM_DEBUG,
 			ITEM_START_PAGE,
 			ITEM_SOUND,
 			ITEM_SERIAL_TTYS2,
@@ -68,8 +69,6 @@ public class TestProcedures {
 			//ITEM_KEYPAD,
 			ITEM_SINGLE_POINT_TOUCH,
 			ITEM_SCREEN_DISPLAY,
-			ITEM_DEBUG,
-
 	};
 
 

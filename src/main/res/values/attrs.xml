@@ -3,6 +3,7 @@
     
     <declare-styleable name="DiyViews">  
 	    <attr name="text" format="string" />
+		<attr name="textPressed" format="string" />
 	    <attr name="textColor" format="color" />
 	    <!-- 按下的颜色 -->
 	    <attr name="textColorPressed" format="color" />
@@ -39,6 +40,7 @@
 	    
 	    <attr name="radius" format="dimension" />
 	    <attr name="frameColor" format="color" />
+        <attr name="frameColorPressed" format="color" />
 	    <attr name="frameWidth" format="dimension" />
 	    
 	    

@@ -2,6 +2,7 @@ package xmps.androiddebugtool.factorytest;
 
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.enjack.diyviews.MagnetView;
+import com.enjack.diyviews.CircleToggle;
 
 
 /**
@@ -20,8 +21,8 @@ public class DebugFragment extends Fragment {
 	private final String tag = "<DebugFragment>";
 	private Button btn = null;
 	private Button auto;
-	private MagnetView magnet = null;
-	
+	CircleToggle toggle = null;
+
 	@Override  
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -39,12 +40,19 @@ public class DebugFragment extends Fragment {
 	public void findElements(View v){
 		auto = (Button)v.findViewById(R.id.id_dbg_btn_1);
 		btn = (Button)v.findViewById(R.id.id_dbg_btn);
+		toggle = (CircleToggle)v.findViewById(R.id.id_debug_circle_tttt);
 	}
 	
 	public void setElementsListener(){
 		ButtonListener listener = new ButtonListener();
 		btn.setOnClickListener(listener);
 		auto.setOnClickListener(listener);
+        toggle.setWatcher(new CircleToggle.ToggleStateWatcher() {
+            @Override
+            public void onSelectChanged(boolean sel) {
+                Log.i(tag, "current :"+sel);
+            }
+        });
 	}
 	
 	private class ButtonListener implements View.OnClickListener{
@@ -54,9 +62,14 @@ public class DebugFragment extends Fragment {
 			// TODO Auto-generated method stub
 			switch(v.getId()){
 			case R.id.id_dbg_btn_1://off
+                toggle.setText("xyz", "789");
+                toggle.setFrame(Color.RED, Color.BLUE, 15);
+                toggle.setBackgroundColor(Color.YELLOW, Color.GRAY);
+                toggle.postInvalidate();
 				break;
 			case R.id.id_dbg_btn:	//on
-                Log.i(tag, magnet.toString());
+                toggle.setSelected(!toggle.getSelected());
+                toggle.postInvalidate();
 				break;
 			}
 		}

@@ -12,11 +12,29 @@ import android.view.MotionEvent;
 import xmps.androiddebugtool.factorytest.R;
 
 /**
+ * Circle toggle.
+     android:id="@+id/id_debug_circle_tttt"
+     android:layout_width="0dp"
+     android:layout_height="0dp"
+     android:layout_below="@id/id_dbg_ccbv"
+     android:layout_marginTop="10dp"
+     android:layout_centerHorizontal="true"
+     custom:radius="100dp"
+     custom:textSuggestSize="true"
+     custom:text="abc"
+     custom:textPressed="123"
+     custom:textColor="#84480d98"
+     custom:textColorPressed="#ffedc649"
+     custom:frameWidth="2px"
+     custom:frameColor="#84480d98"
+     custom:frameColorPressed="#ffedc649"
+     custom:bkColor="#00000000"
+     custom:bkColorPressed="#ffff150e"
+
  * Created by enjack on 2015/8/19.
  */
 public class CircleToggle extends CircleColorButtonView {
-    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleToggle", 1);
-    private DrawEfficiencyAnalysts mAnalystsFontSize = new DrawEfficiencyAnalysts("fontSize", 1);
+    private DrawEfficiencyAnalysts mAnalysts = new DrawEfficiencyAnalysts("CircleToggle", 2);
     protected String mTextPressed = "";
     protected int mFrameColorPressed = mFrameColor;
     private boolean mSelected = false;
@@ -29,7 +47,7 @@ public class CircleToggle extends CircleColorButtonView {
 
     public CircleToggle(Context context, AttributeSet attrs) {
         //super(context, attrs);
-        this(context, null, 0);
+        this(context, attrs, 0);
     }
 
     public CircleToggle(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -82,12 +100,10 @@ public class CircleToggle extends CircleColorButtonView {
     }
 
     @Override
-    public int getSuggestFontSize(String text){
-        int size = 0;
-        mAnalystsFontSize.pre();
-        size = super.getSuggestFontSize(text);
-        mAnalystsFontSize.post();
-        return size;
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
+        mRadius = 100;
+        mWidth = mHeight = mRadius*2;
+        setMeasuredDimension(mWidth, mHeight);
     }
 
     private void initResources(){
@@ -128,6 +144,7 @@ public class CircleToggle extends CircleColorButtonView {
         mPaintText.setTextSize(mTextSize);
         mPaintText.setColor(textColor);
         mPaintFrame.setColor(frameColor);
+        mPaintFrame.setStrokeWidth(mFrameWidth);
         mPaintBackround.setColor(bkColor);
     }
 
@@ -259,6 +276,8 @@ public class CircleToggle extends CircleColorButtonView {
     public void setSelected(boolean sel){
         mSelected = sel;
         changeResources();
+        if(mWatcher!=null)
+            mWatcher.onSelectChanged(mSelected);
     }
 
     /**Get current selected status.*/
@@ -279,8 +298,9 @@ public class CircleToggle extends CircleColorButtonView {
     @Override
     public boolean onTouchEvent(MotionEvent event){
         if(MotionEvent.ACTION_DOWN == (event.getAction()&MotionEvent.ACTION_MASK)){
-            mSelected = !mSelected;
+            setSelected(!mSelected);
             changeResources();
+            invalidate();
         }
         //return super.onTouchEvent(event);
         return true;
